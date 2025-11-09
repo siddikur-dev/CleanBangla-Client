@@ -25,29 +25,23 @@ body {
 @plugin "daisyui/theme" {
     name: "light";
     default: true;
-
-    /* 🎨 Toy Universe Minimal Light Theme */
-    --color-primary: #e85a4f;
-    /* Coral Red */
-    --color-secondary: #E6BE4C;
-    /* Soft Yellow */
-    --bg-base-100: #FFF8F0;
-    /* Warm off-white background */
+    --color-primary: #2e8b57;
+    /* --color-primary: ; */
+    --color-warning: #fef3c7;
+    --color-info: #dbeafe;
+    --bg-base-100: #f6f8f7;
 }
 
 @plugin "daisyui/theme" {
     name: "dark";
 
-    /* 🌙 Toy Universe Dark Theme */
-    --color-primary: #bf382c;
-    /* Slightly softer coral for dark mode */
-    --color-secondary: #FFDD6E;
-    /* Gentle yellow tone */
-    --bg-base-100: #1A1B27;
-    /* Deep navy background */
+    --color-primary: #28a745;
+    --color-warning: #78350f;
+    --color-info: #1e3a8a;
+    --bg-base-100: #111827;
 }
 
+
 a.active {
-    color: #bf382c;
-    /* Highlight active links with primary */
+    color: #28a745;
 }

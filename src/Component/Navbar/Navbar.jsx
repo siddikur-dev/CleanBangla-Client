@@ -32,12 +32,21 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100 shadow-md sticky top-0 z-50 transition-all duration-300">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* Brand / Logo */}
-        <NavLink to="/" className="text-2xl logo-font font-bold tracking-wide">
-          <span className="text-primary">🧸Toy</span>
-          <span className="text-secondary">Universe</span>
+        {/*Left  Logo */}
+
+        <NavLink
+          to="/"
+          className="text-3xl logo-font font-bold flex items-center gap-1"
+        >
+          <span className="text-primary">CleanBangla</span>{" "}
+          <img
+            src="../../../public/Logo.png"
+            alt=""
+            className="w-8 rounded-full"
+          />
         </NavLink>
-        <div className="hidden md:flex gap-5 items-center">
+        {/* Middle Point */}
+        <div className="hidden lg:flex gap-5 items-center">
           <NavLink
             to="/"
             className="text-base font-medium text-base-content    hover:text-primary/75"
@@ -49,27 +58,34 @@ const Navbar = () => {
             to="/about"
             className="text-base font-medium text-base-content    hover:text-primary/75"
           >
-            About
+            All Issues
           </NavLink>
-
-          <NavLink
-            to="/feature"
-            className="text-base font-medium text-base-content    hover:text-primary/75"
-          >
-            Feature
-          </NavLink>
-
           {user && (
-            <NavLink
-              to="/profile"
-              className="text-base font-medium text-base-content    hover:text-primary/75"
-            >
-              Profile
-            </NavLink>
+            <>
+              <NavLink
+                to="/feature"
+                className="text-base font-medium text-base-content    hover:text-primary/75"
+              >
+                Add Issues
+              </NavLink>
+
+              <NavLink
+                to="/profile"
+                className="text-base font-medium text-base-content    hover:text-primary/75"
+              >
+                My Issues
+              </NavLink>
+              <NavLink
+                to="/profile"
+                className="text-base font-medium text-base-content    hover:text-primary/75"
+              >
+                My Contribution,
+              </NavLink>
+            </>
           )}
         </div>
 
-        {/* Desktop Menu */}
+        {/* Right side */}
         <div className="hidden md:flex gap-3 items-center">
           <ThemeToggle></ThemeToggle>
           {user ? (
@@ -85,7 +101,7 @@ const Navbar = () => {
                     "https://cdn-icons-png.flaticon.com/128/3135/3135715.png"
                   }
                   alt={user.displayName}
-                  className="w-10 h-10 rounded-full border-2 border-gray-300 hover:border-blue-500 transition-all duration-200"
+                  className="w-10 h-10 rounded-full border-2 border-gray-300  transition-all duration-200"
                 />
 
                 {/* Name below on hover */}
@@ -104,12 +120,17 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <Link
-              to={"/login"}
-              className="btn btn-primary text-white  duration-300"
-            >
-              Login
-            </Link>
+            <>
+              <Link
+                to={"/login"}
+                className="btn btn-primary btn-outline   duration-300"
+              >
+                Login
+              </Link>
+              <Link to={"/register"} className="btn btn-primary   duration-300">
+                Register
+              </Link>
+            </>
           )}
         </div>
 
