@@ -26,7 +26,7 @@ body {
     name: "light";
     default: true;
     --color-primary: #2e8b57;
-    /* --color-primary: ; */
+    --color-secondary: #c8e5d5;
     --color-warning: #fef3c7;
     --color-info: #dbeafe;
     --bg-base-100: #f6f8f7;
@@ -45,6 +45,3 @@ body {
 a.active {
     color: #28a745;
 }
-
-
-

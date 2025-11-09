@@ -54,9 +54,10 @@ const Login = () => {
       <title>Login - Toy Universe</title>
       <div className="bg-base-100 shadow-xl rounded-xl w-full max-w-md p-8">
         {/* Heading */}
-        <h2 className="text-3xl font-bold text-center text-primary mb-6">
-          Login Now!
+        <h2 className="text-3xl heading-font md:text-4xl font-bold text-center mb-8">
+          Clean Bangla Welcome Back!
         </h2>
+        <p className="text-center">Access Your Account to report issues</p>
 
         {/* Form */}
         <form className="space-y-4" onSubmit={handleLogin}>

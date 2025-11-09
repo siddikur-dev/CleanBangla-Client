@@ -35,7 +35,6 @@ const Navbar = () => {
     // Main Navbar Container
     <div className="navbar bg-base-100 shadow-md sticky top-0 z-50 transition-all duration-300">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        
         {/* Left side - Logo and Site Name */}
         <NavLink
           to="/"
@@ -69,7 +68,7 @@ const Navbar = () => {
           {user && (
             <>
               <NavLink
-                to="/feature"
+                to="/add-issue"
                 className="text-base font-medium text-base-content hover:text-primary/75"
               >
                 Add Issues
@@ -191,7 +190,7 @@ const Navbar = () => {
             {user && (
               <li>
                 <NavLink
-                  to="/issues"
+                  to="/add-issue"
                   className="text-base-content hover:text-primary/75 hover:bg-base-200"
                 >
                   Add Issues
