@@ -8,7 +8,6 @@ import { BeatLoader } from "react-spinners";
 
 const Navbar = () => {
   const { user, signOutUser, loading } = useContext(AuthContext);
-
   const navigate = useNavigate();
   if (loading) {
     return (
@@ -55,7 +54,7 @@ const Navbar = () => {
           </NavLink>
 
           <NavLink
-            to="/about"
+            to="/issues"
             className="text-base font-medium text-base-content    hover:text-primary/75"
           >
             All Issues
@@ -79,7 +78,7 @@ const Navbar = () => {
                 to="/profile"
                 className="text-base font-medium text-base-content    hover:text-primary/75"
               >
-                My Contribution,
+                My Contribution
               </NavLink>
             </>
           )}
@@ -167,30 +166,40 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/about"
+                to="/issues"
                 className="text-base-content hover:text-primary/75 hover:bg-base-200"
               >
-                About
+                All Issues
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/my-toys"
-                className="text-base-content hover:text-primary/75 hover:bg-base-200"
-              >
-                My Toys
-              </NavLink>
-            </li>
-            <li>
-              {user && (
+            {user && (
+              <li>
+                <NavLink
+                  to="/issues"
+                  className="text-base-content hover:text-primary/75 hover:bg-base-200"
+                >
+                  Add Issues
+                </NavLink>
+                <NavLink
+                  to="/my-issues"
+                  className="text-base-content hover:text-primary/75 hover:bg-base-200"
+                >
+                  My Issues
+                </NavLink>
+                <NavLink
+                  to="/my-contribution"
+                  className="text-base-content hover:text-primary/75 hover:bg-base-200"
+                >
+                  My Contribution
+                </NavLink>
                 <NavLink
                   to="/profile"
                   className="  text-base-content hover:text-primary/75 hover:bg-base-200"
                 >
                   Profile
                 </NavLink>
-              )}
-            </li>
+              </li>
+            )}
             <ThemeToggle></ThemeToggle>
             <li>
               {user ? (
@@ -202,12 +211,20 @@ const Navbar = () => {
                   Logout
                 </button>
               ) : (
-                <Link
-                  to={"/register"}
-                  className="btn btn-primary w-full mt-2 text-white duration-300"
-                >
-                  Register
-                </Link>
+                <>
+                  <Link
+                    to={"/login"}
+                    className="btn btn-primary btn-outline w-full mt-2  duration-300"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to={"/register"}
+                    className="btn btn-primary w-full mt-2  duration-300"
+                  >
+                    Register
+                  </Link>
+                </>
               )}
             </li>
           </ul>

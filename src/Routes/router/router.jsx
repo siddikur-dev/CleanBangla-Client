@@ -11,6 +11,7 @@ import ToyCardDetails from "../../Component/Toys/ToyCardDetails/ToyCardDetails";
 import Feature from "../../Pages/Feature/Feature";
 import ResetPass from "../../Component/AuthRegLogin/ResetPass/ResetPass";
 import About from "../../Pages/About/About";
+import Allissues from "../../Pages/Allissues/Allissues";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +23,8 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "/about",
-        Component: About,
+        path: "/issues",
+        Component: Allissues,
       },
       {
         path: "/profile",
