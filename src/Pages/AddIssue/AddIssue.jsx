@@ -1,21 +1,43 @@
 import React from "react";
+import useAuth from "../../hook/useAuth";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../hook/useAxiosSecure";
 
 const ReportIssueForm = () => {
+  const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
+
+  //   Add Issue Submit Handler
   const handleSubmit = (e) => {
     e.preventDefault();
     // Build FormData from the submitted form
     const form = e.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
-    console.log("Report submitted:", data);
+    const newIssue = { ...data, date: new Date(), status: "ongoing" };
+    console.log(newIssue);
+    axiosSecure.post("/all-issues", newIssue).then((data) => {
+      console.log("Report submitted:", data);
+      if (data.data.insertedId) {
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Issue has been reported",
+          showConfirmButton: false,
+          timer: 1200,
+        });
+      }
+    });
   };
   return (
-    <div className="container mx-auto flex items-center justify-center p-4">
-      <div className="bg-base-100 shadow-xl rounded-xl w-full max-w-3xl p-8">
-        <h1 className="text-3xl heading-font md:text-4xl font-bold text-center pb-5 ">
+    <div className="container mx-auto flex items-center justify-center ">
+      {/* Helmet Title */}
+      <title>Add Issue - CleanBangla</title>
+      <div className="bg-base-100 shadow-xl rounded-xl w-full max-w-3xl px-8">
+        <h1 className="text-3xl font-bold text-center mt-12">
           Report a New Issue
         </h1>
-        <p className="text-sm text-center mb-6">
+        <p className="text-center text-base text-base-content/70 max-w-2xl mx-auto pt-3 pb-5">
           Help us keep our community clean. Fill out the details below.
         </p>
 
@@ -30,7 +52,7 @@ const ReportIssueForm = () => {
               id="title"
               name="title"
               placeholder="e.g., Large garbage pile on the main road"
-              className="w-full p-2 rounded border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark"
+              className="w-full p-2 rounded border        "
             />
           </div>
 
@@ -42,7 +64,7 @@ const ReportIssueForm = () => {
             <select
               id="category"
               name="category"
-              className="w-full p-2 rounded border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark"
+              className="w-full p-2 rounded border        "
             >
               <option>Garbage</option>
               <option>Illegal Construction</option>
@@ -61,7 +83,7 @@ const ReportIssueForm = () => {
               id="location"
               name="location"
               placeholder="Enter street name or landmark"
-              className="w-full p-2 rounded border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark"
+              className="w-full p-2 rounded border        "
             />
           </div>
 
@@ -75,7 +97,7 @@ const ReportIssueForm = () => {
               name="description"
               rows="4"
               placeholder="Provide a detailed description of the issue."
-              className="w-full p-2 rounded border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark"
+              className="w-full p-2 rounded border        "
             ></textarea>
           </div>
 
@@ -89,7 +111,7 @@ const ReportIssueForm = () => {
               id="image"
               name="image"
               placeholder="Paste image link here"
-              className="w-full p-2 rounded border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark"
+              className="w-full p-2 rounded border        "
             />
           </div>
 
@@ -103,7 +125,7 @@ const ReportIssueForm = () => {
               id="amount"
               name="amount"
               placeholder="0.00"
-              className="w-full p-2 rounded border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark"
+              className="w-full p-2 rounded border        "
             />
           </div>
 
@@ -116,9 +138,9 @@ const ReportIssueForm = () => {
               type="email"
               id="email"
               name="email"
-              value="user@example.com"
+              value={user?.email || ""}
               readOnly
-              className="w-full p-2 rounded border border-border-light dark:border-border-dark bg-background-light/50 dark:bg-background-dark/50 text-muted-light dark:text-muted-dark cursor-not-allowed"
+              className="w-full p-2 rounded border    /50 /50 text-muted-light dark:text-muted-dark cursor-not-allowed"
             />
           </div>
 
