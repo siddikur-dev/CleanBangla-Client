@@ -9,6 +9,8 @@ import { BeatLoader } from "react-spinners";
 const Navbar = () => {
   const { user, signOutUser, loading } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  // Show Loader when auth state is loading
   if (loading) {
     return (
       <div className="flex justify-center my-3">
@@ -16,7 +18,8 @@ const Navbar = () => {
       </div>
     );
   }
-  // Sign Out Function
+
+  // Handle Logout function
   const signOut = () => {
     signOutUser()
       .then(() => {
@@ -29,10 +32,11 @@ const Navbar = () => {
   };
 
   return (
+    // Main Navbar Container
     <div className="navbar bg-base-100 shadow-md sticky top-0 z-50 transition-all duration-300">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        {/*Left  Logo */}
-
+        
+        {/* Left side - Logo and Site Name */}
         <NavLink
           to="/"
           className="text-3xl logo-font font-bold flex items-center gap-1"
@@ -44,39 +48,43 @@ const Navbar = () => {
             className="w-8 rounded-full"
           />
         </NavLink>
-        {/* Middle Point */}
+
+        {/* Middle Section - Menu Items for large screen */}
         <div className="hidden lg:flex gap-5 items-center">
           <NavLink
             to="/"
-            className="text-base font-medium text-base-content    hover:text-primary/75"
+            className="text-base font-medium text-base-content hover:text-primary/75"
           >
             Home
           </NavLink>
 
           <NavLink
             to="/issues"
-            className="text-base font-medium text-base-content    hover:text-primary/75"
+            className="text-base font-medium text-base-content hover:text-primary/75"
           >
             All Issues
           </NavLink>
+
+          {/* Menu Items for logged-in user */}
           {user && (
             <>
               <NavLink
                 to="/feature"
-                className="text-base font-medium text-base-content    hover:text-primary/75"
+                className="text-base font-medium text-base-content hover:text-primary/75"
               >
                 Add Issues
               </NavLink>
 
               <NavLink
                 to="/profile"
-                className="text-base font-medium text-base-content    hover:text-primary/75"
+                className="text-base font-medium text-base-content hover:text-primary/75"
               >
                 My Issues
               </NavLink>
+
               <NavLink
                 to="/profile"
-                className="text-base font-medium text-base-content    hover:text-primary/75"
+                className="text-base font-medium text-base-content hover:text-primary/75"
               >
                 My Contribution
               </NavLink>
@@ -84,12 +92,14 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Right side */}
+        {/* Right side - Theme toggle and Auth buttons */}
         <div className="hidden md:flex gap-3 items-center">
           <ThemeToggle></ThemeToggle>
+
+          {/* If user logged in */}
           {user ? (
             <div className="flex items-center gap-3">
-              {/* Profile Image */}
+              {/* Profile Image with Hover Name */}
               <div
                 className="relative flex items-center justify-center cursor-pointer group"
                 onClick={() => navigate("/profile")}
@@ -100,10 +110,8 @@ const Navbar = () => {
                     "https://cdn-icons-png.flaticon.com/128/3135/3135715.png"
                   }
                   alt={user.displayName}
-                  className="w-10 h-10 rounded-full border-2 border-gray-300  transition-all duration-200"
+                  className="w-10 h-10 rounded-full border-2 border-gray-300 transition-all duration-200"
                 />
-
-                {/* Name below on hover */}
                 <span className="absolute top-full mt-1 text-sm opacity-0 group-hover:opacity-100 transition-all duration-300">
                   {user.displayName}
                 </span>
@@ -119,14 +127,15 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
+            // If user not logged in
             <>
               <Link
                 to={"/login"}
-                className="btn btn-primary btn-outline   duration-300"
+                className="btn btn-primary btn-outline duration-300"
               >
                 Login
               </Link>
-              <Link to={"/register"} className="btn btn-primary   duration-300">
+              <Link to={"/register"} className="btn btn-primary duration-300">
                 Register
               </Link>
             </>
@@ -135,7 +144,8 @@ const Navbar = () => {
 
         {/* Mobile Dropdown Menu */}
         <div className="dropdown dropdown-end md:hidden">
-          <div tabIndex={0} role="button" className="  btn btn-ghost">
+          {/* Dropdown Toggle Button */}
+          <div tabIndex={0} role="button" className="btn btn-ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 text-base-content"
@@ -152,10 +162,12 @@ const Navbar = () => {
             </svg>
           </div>
 
+          {/* Dropdown Menu Items */}
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
+            {/* Home */}
             <li>
               <NavLink
                 to="/"
@@ -164,6 +176,8 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
+
+            {/* All Issues */}
             <li>
               <NavLink
                 to="/issues"
@@ -172,6 +186,8 @@ const Navbar = () => {
                 All Issues
               </NavLink>
             </li>
+
+            {/* Menu for logged-in users */}
             {user && (
               <li>
                 <NavLink
@@ -194,18 +210,22 @@ const Navbar = () => {
                 </NavLink>
                 <NavLink
                   to="/profile"
-                  className="  text-base-content hover:text-primary/75 hover:bg-base-200"
+                  className="text-base-content hover:text-primary/75 hover:bg-base-200"
                 >
                   Profile
                 </NavLink>
               </li>
             )}
+
+            {/* Theme Toggle inside dropdown */}
             <ThemeToggle></ThemeToggle>
+
+            {/* Auth Buttons */}
             <li>
               {user ? (
                 <button
                   onClick={signOut}
-                  className="btn btn-primary text-white   duration-300 mt-2"
+                  className="btn btn-primary text-white duration-300 mt-2"
                 >
                   <TbLogout2 />
                   Logout
@@ -214,13 +234,13 @@ const Navbar = () => {
                 <>
                   <Link
                     to={"/login"}
-                    className="btn btn-primary btn-outline w-full mt-2  duration-300"
+                    className="btn btn-primary btn-outline w-full mt-2 duration-300"
                   >
                     Login
                   </Link>
                   <Link
                     to={"/register"}
-                    className="btn btn-primary w-full mt-2  duration-300"
+                    className="btn btn-primary w-full mt-2 duration-300"
                   >
                     Register
                   </Link>
