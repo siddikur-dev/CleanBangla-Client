@@ -26,9 +26,14 @@ const Register = () => {
     // Password Validation Checked
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
     if (!regex.test(password)) {
-      return toast.error(
-        "Password must contain at least 6 characters, one uppercase, one lowercase, one number"
-      );
+      return Swal.fire({
+        position: "top-center",
+        icon: "warning",
+        title:
+          "Password must contain at least 6 characters, one uppercase, one lowercase, one number",
+        showConfirmButton: false,
+        timer: 2000,
+      });
     }
 
     // Create User

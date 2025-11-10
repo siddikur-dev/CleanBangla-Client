@@ -28,7 +28,7 @@ body {
     --color-primary: #2e8b57;
     --color-secondary: #c8e5d5;
     --color-warning: #fcb700;
-    --color-info: #82b2f1;
+    /* --color-info: #82b2f1; */
     --bg-base-100: #fafafa;
     --bg-base-200: #fff;
 }
@@ -39,7 +39,7 @@ body {
     --color-primary: #3d9cf5;
     --color-secondary: #85c4fc;
     --color-warning: #78350f;
-    --color-info: #1e3a8a;
+    /* --color-info: #1e3a8a; */
     --bg-base-100: #161b20;
     --bg-base-200: #171c21;
 }

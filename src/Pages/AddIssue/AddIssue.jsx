@@ -66,7 +66,7 @@ const ReportIssueForm = () => {
             <select
               id="category"
               name="category"
-              className="w-full p-2 rounded border        "
+              className="w-full p-2 rounded border"
             >
               <option>Garbage</option>
               <option>Illegal Construction</option>
