@@ -17,7 +17,6 @@ const ReportIssueForm = () => {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
     const newIssue = { ...data, date: new Date(), status: "ongoing" };
-    console.log(newIssue);
     axiosSecure.post("/all-issues", newIssue).then((data) => {
       if (data.data.insertedId) {
         Swal.fire({

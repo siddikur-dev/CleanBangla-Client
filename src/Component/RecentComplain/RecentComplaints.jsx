@@ -80,9 +80,7 @@ const RecentComplaints = () => {
               >
                 <div className={`text-4xl ${cat.text}`}>{cat.icon}</div>
                 <h3 className="font-semibold text-center">{cat.name}</h3>
-                <p className="text-sm text-center ">
-                  {cat.description}
-                </p>
+                <p className="text-sm text-center ">{cat.description}</p>
               </div>
             ))}
           </div>
@@ -101,7 +99,7 @@ const RecentComplaints = () => {
         </p>
       </div>
       {/* Recent issues */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 p-5 ">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 p-5 items-center ">
         {recentIssues.map((issue) => (
           <RecentComplaintsCards
             issue={issue}

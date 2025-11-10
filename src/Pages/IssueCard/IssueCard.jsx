@@ -2,7 +2,7 @@ import React from "react";
 import { IoLocationOutline } from "react-icons/io5";
 
 const IssueCard = ({ issue }) => {
-  const { title, location, category, image, amount,  } = issue;
+  const { title, location, category, image, amount } = issue;
 
   return (
     <div data-aos="zoom-out">
@@ -23,20 +23,20 @@ const IssueCard = ({ issue }) => {
         {/* --- Content Section --- */}
         <div className="p-5">
           {/* Title */}
-          <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-200">
+          <h2 className="text-2xl font-bold  mb-3 text-primary transition-colors duration-200">
             {title}
           </h2>
 
           {/* Category & Location */}
           <div className="mb-4 space-y-2">
             <div className="flex items-center gap-2">
-              <span className="text-gray-800 ">Amount:</span>
-              <span className="text-gray-800">৳{amount}</span>
+              <span className="text-base-content/70 ">Amount:</span>
+              <span className="text-base-content/70">৳{amount}</span>
             </div>
 
             <div className="flex items-center gap-2 text-sm">
               Location:
-              <span className="text-gray-800">{location}</span>
+              <span className="text-base-content/70">{location}</span>
             </div>
           </div>
 

@@ -19,11 +19,11 @@ const Allissues = () => {
       <title>All Issues - CleanBangla</title>
       {/* --- Section Title --- */}
       <div data-aos="fade-right">
-        <h2 className="text-3xl font-bold text-center mt-12 ">
-          All Reported
+        <h2 className="text-3xl font-bold text-center mt-12">
+          Discover & Support{" "}
           <span className="text-primary">
             <Typewriter
-              words={[" Issues"]}
+              words={["Reported Issues", "Local Problems", "Community Efforts"]}
               loop={true}
               cursor
               cursorStyle="|"
@@ -34,6 +34,7 @@ const Allissues = () => {
           </span>
         </h2>
       </div>
+
       <div data-aos="fade-left">
         {/* --- Short Description under title --- */}
         <p className="text-center text-base-content/70 max-w-2xl mx-auto pt-3 pb-5">
