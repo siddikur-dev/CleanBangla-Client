@@ -1,10 +1,15 @@
 import React from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import moment from "moment";
-
+import { useNavigate } from "react-router";
 const RecentComplaintsCards = ({ issue }) => {
   const timeAgo = moment(issue.date).fromNow();
 
+//   click see details page to redirect see details page
+  const navigate = useNavigate();
+  const handleSeeDetails = (_id) => {
+    navigate(`/recent-issues/${_id}`);
+  };
   return (
     <div data-aos="zoom-out">
       <div
@@ -48,7 +53,10 @@ const RecentComplaintsCards = ({ issue }) => {
               <span>{issue.location}</span>
             </div>
 
-            <button className="btn-primary btn btn-outline  transition">
+            <button
+              onClick={() => handleSeeDetails(issue._id)}
+              className="btn-primary btn btn-outline  transition"
+            >
               See Details
             </button>
           </div>

@@ -13,6 +13,7 @@ import ResetPass from "../../Component/AuthRegLogin/ResetPass/ResetPass";
 import About from "../../Pages/About/About";
 import Allissues from "../../Pages/Allissues/Allissues";
 import AddIssue from "../../Pages/AddIssue/AddIssue";
+import IssueDetails from "../../Pages/IssueDetails/IssueDetails";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/issues",
         Component: Allissues,
+      },
+      {
+        path: "/recent-issues/:id",
+        Component: IssueDetails,
       },
       {
         path: "/add-issue",
