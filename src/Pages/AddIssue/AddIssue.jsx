@@ -2,10 +2,12 @@ import React from "react";
 import useAuth from "../../hook/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hook/useAxiosSecure";
+import { useNavigate } from "react-router";
 
 const ReportIssueForm = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   //   Add Issue Submit Handler
   const handleSubmit = (e) => {
@@ -17,7 +19,6 @@ const ReportIssueForm = () => {
     const newIssue = { ...data, date: new Date(), status: "ongoing" };
     console.log(newIssue);
     axiosSecure.post("/all-issues", newIssue).then((data) => {
-      console.log("Report submitted:", data);
       if (data.data.insertedId) {
         Swal.fire({
           position: "top-center",
@@ -26,6 +27,7 @@ const ReportIssueForm = () => {
           showConfirmButton: false,
           timer: 1200,
         });
+        navigate("/issues");
       }
     });
   };
@@ -147,9 +149,9 @@ const ReportIssueForm = () => {
           {/* Submit */}
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-primary cursor-pointer rounded hover:bg-primary/90 transition "
+            className="w-full py-2 px-4 bg-primary cursor-pointer rounded hover:bg-primary/90 transition text-white"
           >
-            Submit Report
+            Submit Issue
           </button>
         </form>
       </div>

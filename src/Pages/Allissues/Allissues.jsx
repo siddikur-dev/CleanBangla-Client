@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../hook/useAxiosSecure";
+import { Typewriter } from "react-simple-typewriter";
 import IssueCard from "../IssueCard/IssueCard";
 
 const Allissues = () => {
@@ -18,8 +19,19 @@ const Allissues = () => {
       <title>All Issues - CleanBangla</title>
       {/* --- Section Title --- */}
       <div data-aos="fade-right">
-        <h2 className="text-3xl font-bold text-center mt-12">
-          All Reported Issues
+        <h2 className="text-3xl font-bold text-center mt-12 ">
+          All Reported
+          <span className="text-primary">
+            <Typewriter
+              words={[" Issues"]}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={120}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
+          </span>
         </h2>
       </div>
       <div data-aos="fade-left">

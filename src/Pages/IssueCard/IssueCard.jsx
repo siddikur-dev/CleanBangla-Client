@@ -2,11 +2,11 @@ import React from "react";
 import { IoLocationOutline } from "react-icons/io5";
 
 const IssueCard = ({ issue }) => {
-  const { title, location, image, amount, status } = issue;
+  const { title, location, category, image, amount,  } = issue;
 
   return (
     <div data-aos="zoom-out">
-      <div className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+      <div className=" rounded-xl shadow-md border border-gray-100 overflow-hidden group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
         {/* --- Issue Image --- */}
         <div className="relative h-52 bg-gray-100 overflow-hidden">
           <img
@@ -15,8 +15,8 @@ const IssueCard = ({ issue }) => {
             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 ease-in-out"
           />
           {/* Overlay status badge */}
-          <div className="absolute top-3 right-3 bg-warning text-white text-xs font-medium px-2 py-1 rounded-full shadow-sm">
-            {status} Ongoing
+          <div className="absolute top-3 right-3 bg-info text-white text-xs font-medium px-2 py-1 rounded-full shadow-sm">
+            {category}
           </div>
         </div>
 

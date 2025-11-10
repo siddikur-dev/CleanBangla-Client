@@ -28,19 +28,20 @@ body {
     --color-primary: #2e8b57;
     --color-secondary: #c8e5d5;
     --color-warning: #fcb700;
-    --color-info: #dbeafe;
-    --bg-base-100: #f6f8f7;
-    --bg-base-200: #eeeeee;
+    --color-info: #82b2f1;
+    --bg-base-100: #fafafa;
+    --bg-base-200: #fff;
 }
 
 @plugin "daisyui/theme" {
     name: "dark";
 
-    --color-primary: #28a745;
+    --color-primary: #3d9cf5;
+    --color-secondary: #85c4fc;
     --color-warning: #78350f;
     --color-info: #1e3a8a;
-    --bg-base-100: #101828;
-    --bg-base-200: #1d232a;
+    --bg-base-100: #112117;
+    --bg-base-200: #171c21;
 }
 
 
