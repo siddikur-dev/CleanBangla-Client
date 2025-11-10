@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     // Main Navbar Container
-    <div className="navbar bg-base-100 shadow-md sticky top-0 z-50 transition-all duration-300">
+    <div className="navbar bg-base-200 shadow-md sticky top-0 z-50 transition-all duration-300">
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Left side - Logo and Site Name */}
         <NavLink

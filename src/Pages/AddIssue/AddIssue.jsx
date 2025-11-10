@@ -30,10 +30,10 @@ const ReportIssueForm = () => {
     });
   };
   return (
-    <div className="container mx-auto flex items-center justify-center ">
+    <div className="container mx-auto flex items-center justify-center bg-base-100 ">
       {/* Helmet Title */}
       <title>Add Issue - CleanBangla</title>
-      <div className="bg-base-100 shadow-xl rounded-xl w-full max-w-3xl px-8">
+      <div className="shadow-md hover:shadow-xl  rounded-xl w-full max-w-3xl px-8 my-10 ">
         <h1 className="text-3xl font-bold text-center mt-12">
           Report a New Issue
         </h1>
@@ -41,7 +41,7 @@ const ReportIssueForm = () => {
           Help us keep our community clean. Fill out the details below.
         </p>
 
-        <form className="space-y-4" onSubmit={handleSubmit}>
+        <form className="space-y-4 pb-6" onSubmit={handleSubmit}>
           {/* Issue Title */}
           <div>
             <label className="block text-sm mb-1" htmlFor="title">
@@ -147,7 +147,7 @@ const ReportIssueForm = () => {
           {/* Submit */}
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-primary cursor-pointer rounded hover:bg-primary/90 transition"
+            className="w-full py-2 px-4 bg-primary cursor-pointer rounded hover:bg-primary/90 transition "
           >
             Submit Report
           </button>

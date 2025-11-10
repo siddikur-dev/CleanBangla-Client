@@ -27,9 +27,10 @@ body {
     default: true;
     --color-primary: #2e8b57;
     --color-secondary: #c8e5d5;
-    --color-warning: #fef3c7;
+    --color-warning: #fcb700;
     --color-info: #dbeafe;
     --bg-base-100: #f6f8f7;
+    --bg-base-200: #eeeeee;
 }
 
 @plugin "daisyui/theme" {
@@ -38,7 +39,8 @@ body {
     --color-primary: #28a745;
     --color-warning: #78350f;
     --color-info: #1e3a8a;
-    --bg-base-100: #111827;
+    --bg-base-100: #101828;
+    --bg-base-200: #1d232a;
 }
 
 

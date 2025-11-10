@@ -24,10 +24,10 @@ const RecentComplainCard = () => {
     <div className="container mx-auto">
       {/* 4 category card */}
       <section className="py-10 px-6 bg-base-100">
-        <h2 className="text-3xl heading-font md:text-4xl font-bold text-center   mb-8">
+        <h2 className="text-3xl font-bold text-center mt-12 pb-3">
           Report Community Issues
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto pb-5">
           {categoriesButton.map((cat, index) => (
             <button
               key={index}
