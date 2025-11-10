@@ -76,13 +76,11 @@ const RecentComplaints = () => {
               <div
                 key={cat.id}
                 className={`flex flex-col items-center justify-center gap-3 p-6 rounded-2xl shadow-md 
-                  transform transition-all duration-300 ${cat.bg} hover:scale-105 hover:shadow-lg cursor-pointer`}
+                  transform transition-all duration-300 ${cat.bg} hover:scale-105 hover:shadow-lg `}
               >
                 <div className={`text-4xl ${cat.text}`}>{cat.icon}</div>
                 <h3 className="font-semibold text-center">{cat.name}</h3>
-                <p className="text-sm text-center text-gray-600">
-                  {cat.description}
-                </p>
+                <p className="text-sm text-center ">{cat.description}</p>
               </div>
             ))}
           </div>

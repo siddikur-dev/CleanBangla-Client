@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     Component: Root,
     children: [
       {
-        path: "/",
+        index: true,
         Component: Home,
       },
       {
