@@ -5,13 +5,15 @@ import { VscEyeClosed } from "react-icons/vsc";
 import { FaRegEye } from "react-icons/fa";
 import { sendEmailVerification, updateProfile } from "firebase/auth";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   // get from authProvider/authContext
   const { createUser, signInGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Create User Mail Pass
   const createUserMailPass = (e) => {
@@ -38,8 +40,14 @@ const Register = () => {
             // email verification
             sendEmailVerification(res.user)
               .then(() => {
-                toast.success("User Created Successfully!");
-                navigate("/");
+                Swal.fire({
+                  position: "top-center",
+                  icon: "success",
+                  title: "New User Created Successfully",
+                  showConfirmButton: false,
+                  timer: 1200,
+                });
+                navigate(location.state || "/");
               })
               .catch((error) => {
                 console.log("Email verification error", error);
@@ -53,7 +61,13 @@ const Register = () => {
       })
       .catch((error) => {
         console.log("Create user error", error);
-        toast.error("This Account Already Registered");
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: "This User Already Registered!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
   };
 
@@ -62,11 +76,24 @@ const Register = () => {
     signInGoogle()
       .then((result) => {
         const user = result.user;
-        toast.success("User sign in successfully");
+        console.log(user);
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "New User Created Successfully",
+          showConfirmButton: false,
+          timer: 1200,
+        });
         navigate("/");
       })
       .catch((error) => {
-        toast.error("Failed To Google Sign");
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: "Failed To Google Sign",
+          showConfirmButton: false,
+          timer: 1200,
+        });
         console.log("Sign in google", error);
       });
   };

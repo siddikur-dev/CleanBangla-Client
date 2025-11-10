@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { VscEyeClosed } from "react-icons/vsc";
 import { FaRegEye } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,8 +24,13 @@ const Login = () => {
     signInWithMailPass(email, password)
       .then((res) => {
         const loggedUser = res.user;
-        // optional: you can redirect or update UI here
-        toast.success("Login successful");
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: " User Logged In Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate(location.state || "/");
         form.reset();
       })
@@ -39,11 +45,24 @@ const Login = () => {
     signInGoogle()
       .then((result) => {
         const user = result.user;
-        toast.success("User sign in successfully");
+
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: " User Signed In Successfully",
+          showConfirmButton: false,
+          timer: 1200,
+        });
         navigate(location.state || "/");
       })
       .catch((error) => {
-        toast.error("Failed To Google Sign");
+        Swal.fire({
+          position: "top-center",
+          icon: "Error",
+          title: "Failed To Google Login",
+          showConfirmButton: false,
+          timer: 1200,
+        });
         console.log("Sign in google", error);
       });
   };
