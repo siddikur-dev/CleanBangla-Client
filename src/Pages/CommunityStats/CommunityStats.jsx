@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import CountUp from "react-countup";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -64,7 +64,7 @@ const CommunityStats = () => {
 
         {/* --- Stats Cards --- */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
-          {stats.map((item, index) => (
+          {stats.map((item) => (
             <div
               key={item.id}
               data-aos="fade-up"

@@ -4,6 +4,7 @@ import Review from "../Review/Review";
 import Faq from "../Faq/Faq";
 import RecentComplaints from "../../Component/RecentComplain/RecentComplaints";
 import CommunityStats from "../CommunityStats/CommunityStats";
+import JoinCleanDrive from "../JoinCleanDrive/JoinCleanDrive";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Slider></Slider>
       <RecentComplaints></RecentComplaints>
       <CommunityStats></CommunityStats>
+      <JoinCleanDrive></JoinCleanDrive>
       <Review></Review>
       {/* Faq */}
       <Faq />
