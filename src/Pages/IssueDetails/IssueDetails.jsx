@@ -57,11 +57,13 @@ const IssueDetails = () => {
 
     axiosSecure.post("/all-contributions", newContribution).then((res) => {
       if (res.data.insertedId) {
-        Swal.fire(
-          "✅ Success!",
-          "Contribution submitted successfully!",
-          "success"
-        );
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Contribution submitted successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         setShowModal(false);
       }
     });
@@ -167,6 +169,7 @@ const IssueDetails = () => {
                   type="number"
                   name="amount"
                   placeholder="Enter amount"
+                  defaultValue={detail.amount}
                   required
                   className="input input-bordered w-full"
                 />
@@ -184,7 +187,8 @@ const IssueDetails = () => {
               <input
                 type="email"
                 name="email"
-                defaultValue={user?.email}
+                value={user?.email}
+                readOnly
                 placeholder="Email"
                 className="input input-bordered w-full"
                 required

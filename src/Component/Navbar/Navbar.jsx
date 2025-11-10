@@ -75,7 +75,7 @@ const Navbar = () => {
               </NavLink>
 
               <NavLink
-                to="/profile"
+                to="/my-issues"
                 className="text-base font-medium text-base-content hover:text-primary/75"
               >
                 My Issues

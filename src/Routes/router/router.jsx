@@ -14,6 +14,7 @@ import About from "../../Pages/About/About";
 import Allissues from "../../Pages/Allissues/Allissues";
 import AddIssue from "../../Pages/AddIssue/AddIssue";
 import IssueDetails from "../../Pages/IssueDetails/IssueDetails";
+import MyIssues from "../../Pages/MyIssues/MyIssues";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: "/recent-issues/:id",
         Component: IssueDetails,
+      },
+      {
+        path: "/my-issues",
+        element: (
+          <PrivateRoute>
+            <MyIssues />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add-issue",
