@@ -35,8 +35,8 @@ const Allissues = () => {
         </h2>
       </div>
 
+      {/* --- Short Description under title --- */}
       <div data-aos="fade-left">
-        {/* --- Short Description under title --- */}
         <p className="text-center text-base-content/70 max-w-2xl mx-auto pt-3 pb-5">
           Explore all the ongoing issues reported by citizens. You can view
           details, track their status, and stay informed about community
