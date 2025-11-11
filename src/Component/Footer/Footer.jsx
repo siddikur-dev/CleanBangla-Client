@@ -9,13 +9,9 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Brand */}
         <div className="flex flex-col items-center md:items-start">
-          <Link
-            to="/"
-            className="text-3xl font-extrabold text-primary mb-2 flex items-center gap-2"
-          >
-            <span className="">Toy</span>
-            <span className="text-secondary">Universe</span>
-          </Link>
+          <h2 className="text-3xl font-extrabold text-primary mb-2 flex items-center gap-2">
+            Clean Bangla
+          </h2>
           <p className="text-sm text-center md:text-left ">
             A world of joy and imagination for every child. Support local toy
             sellers and discover playful learning!
