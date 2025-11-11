@@ -21,7 +21,7 @@ const IssueDetails = () => {
 
   // Fetch issue details
   useEffect(() => {
-    axiosSecure.get(`/recent-issues/${id}`).then((res) => {
+    axiosSecure.get(`/issues/${id}`).then((res) => {
       setDetail(res.data);
     });
   }, [id, axiosSecure]);

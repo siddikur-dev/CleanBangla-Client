@@ -8,7 +8,7 @@ const RecentComplaintsCards = ({ issue }) => {
 //   click see details page to redirect see details page
   const navigate = useNavigate();
   const handleSeeDetails = (_id) => {
-    navigate(`/recent-issues/${_id}`);
+    navigate(`/issues/${_id}`);
   };
   return (
     <div data-aos="zoom-out">

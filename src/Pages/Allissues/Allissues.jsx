@@ -6,13 +6,13 @@ import IssueCard from "../IssueCard/IssueCard";
 const Allissues = () => {
   const axiosSecure = useAxiosSecure();
   const [issues, setIssues] = useState([]);
-  console.log(issues);
+
+  // get all issues
   useEffect(() => {
     axiosSecure.get("/all-issues").then((data) => {
       setIssues(data.data);
     });
   }, [axiosSecure]);
-
   return (
     <div className="container mx-auto ">
       {/* Helmet title */}
