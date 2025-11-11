@@ -6,10 +6,9 @@ import { updateProfile } from "firebase/auth";
 const Profile = () => {
   const { user } = useContext(AuthContext);
   const { displayName, email, emailVerified, photoURL } = user;
-
   const [isEditing, setIsEditing] = useState(false);
   const [name, setName] = useState(displayName || "");
-  const [photo, setPhoto] = useState(photoURL || "");
+  const [photo, setPhoto] = useState(photoURL || "Loading...");
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
 
