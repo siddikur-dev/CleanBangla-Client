@@ -16,12 +16,12 @@ const Navbar = () => {
   if (loading) {
     return (
       <div className="flex justify-center my-3">
-        <BeatLoader color="rgba(232, 89, 79, 1)" />
+        <BeatLoader color="#2e8b57" />
       </div>
     );
   }
 
-  // Handle Logout
+  // Logout with SweetAlert
   const handleLogout = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -49,7 +49,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-200 shadow-md sticky top-0 z-50 transition-all duration-300">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* Logo */}
+        {/* Left: Logo */}
         <NavLink
           to="/"
           className="text-3xl logo-font font-bold flex items-center gap-1"
@@ -66,13 +66,22 @@ const Navbar = () => {
         <div className="hidden lg:flex gap-5 items-center">
           <NavLink
             to="/"
-            className="text-base font-medium text-base-content hover:text-primary/75"
+            className={({ isActive }) =>
+              `text-base font-medium hover:text-primary/75 ${
+                isActive ? "text-primary" : "text-base-content"
+              }`
+            }
           >
             Home
           </NavLink>
+
           <NavLink
             to="/issues"
-            className="text-base font-medium text-base-content hover:text-primary/75"
+            className={({ isActive }) =>
+              `text-base font-medium hover:text-primary/75 ${
+                isActive ? "text-primary" : "text-base-content"
+              }`
+            }
           >
             All Issues
           </NavLink>
@@ -81,19 +90,31 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/add-issue"
-                className="text-base font-medium text-base-content hover:text-primary/75"
+                className={({ isActive }) =>
+                  `text-base font-medium hover:text-primary/75 ${
+                    isActive ? "text-primary" : "text-base-content"
+                  }`
+                }
               >
                 Add Issues
               </NavLink>
               <NavLink
                 to="/my-issues"
-                className="text-base font-medium text-base-content hover:text-primary/75"
+                className={({ isActive }) =>
+                  `text-base font-medium hover:text-primary/75 ${
+                    isActive ? "text-primary" : "text-base-content"
+                  }`
+                }
               >
                 My Issues
               </NavLink>
               <NavLink
                 to="/my-contribution"
-                className="text-base font-medium text-base-content hover:text-primary/75"
+                className={({ isActive }) =>
+                  `text-base font-medium hover:text-primary/75 ${
+                    isActive ? "text-primary" : "text-base-content"
+                  }`
+                }
               >
                 My Contribution
               </NavLink>
@@ -148,13 +169,11 @@ const Navbar = () => {
 
         {/* Mobile Section */}
         <div className="flex md:hidden items-center gap-3">
-          {/* Theme Toggle beside hamburger */}
           <ThemeToggle />
 
-          {/* Hamburger Menu Button */}
           <button
             className="btn btn-ghost"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => setMobileMenuOpen(true)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -167,11 +186,7 @@ const Navbar = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d={
-                  mobileMenuOpen
-                    ? "M6 18L18 6M6 6l12 12" // X icon
-                    : "M4 6h16M4 12h16M4 18h16" // Hamburger
-                }
+                d="M4 6h16M4 12h16M4 18h16"
               />
             </svg>
           </button>
@@ -184,11 +199,39 @@ const Navbar = () => {
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="p-4 flex flex-col gap-3 mt-14">
+        {/* Top Close Button */}
+        <div className="flex justify-between items-center px-4 py-3 border-b">
+          <h3 className="text-lg font-semibold text-primary">Menu</h3>
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="transition-transform duration-300 hover:rotate-90"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-red-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div className="p-4 flex flex-col gap-3">
           <NavLink
             onClick={() => setMobileMenuOpen(false)}
             to="/"
-            className="hover:text-primary/75 hover:bg-base-200 px-3 py-2 rounded"
+            className={({ isActive }) =>
+              `hover:text-primary/75 hover:bg-base-200 px-3 py-2 rounded ${
+                isActive ? "text-primary font-semibold" : "text-base-content"
+              }`
+            }
           >
             Home
           </NavLink>
@@ -196,7 +239,11 @@ const Navbar = () => {
           <NavLink
             onClick={() => setMobileMenuOpen(false)}
             to="/issues"
-            className="hover:text-primary/75 hover:bg-base-200 px-3 py-2 rounded"
+            className={({ isActive }) =>
+              `hover:text-primary/75 hover:bg-base-200 px-3 py-2 rounded ${
+                isActive ? "text-primary font-semibold" : "text-base-content"
+              }`
+            }
           >
             All Issues
           </NavLink>
@@ -206,7 +253,13 @@ const Navbar = () => {
               <NavLink
                 onClick={() => setMobileMenuOpen(false)}
                 to="/add-issue"
-                className="hover:text-primary/75 hover:bg-base-200 px-3 py-2 rounded"
+                className={({ isActive }) =>
+                  `hover:text-primary/75 hover:bg-base-200 px-3 py-2 rounded ${
+                    isActive
+                      ? "text-primary font-semibold"
+                      : "text-base-content"
+                  }`
+                }
               >
                 Add Issues
               </NavLink>
@@ -214,7 +267,13 @@ const Navbar = () => {
               <NavLink
                 onClick={() => setMobileMenuOpen(false)}
                 to="/my-issues"
-                className="hover:text-primary/75 hover:bg-base-200 px-3 py-2 rounded"
+                className={({ isActive }) =>
+                  `hover:text-primary/75 hover:bg-base-200 px-3 py-2 rounded ${
+                    isActive
+                      ? "text-primary font-semibold"
+                      : "text-base-content"
+                  }`
+                }
               >
                 My Issues
               </NavLink>
@@ -222,7 +281,13 @@ const Navbar = () => {
               <NavLink
                 onClick={() => setMobileMenuOpen(false)}
                 to="/my-contribution"
-                className="hover:text-primary/75 hover:bg-base-200 px-3 py-2 rounded"
+                className={({ isActive }) =>
+                  `hover:text-primary/75 hover:bg-base-200 px-3 py-2 rounded ${
+                    isActive
+                      ? "text-primary font-semibold"
+                      : "text-base-content"
+                  }`
+                }
               >
                 My Contribution
               </NavLink>
@@ -230,7 +295,13 @@ const Navbar = () => {
               <NavLink
                 onClick={() => setMobileMenuOpen(false)}
                 to="/profile"
-                className="hover:text-primary/75 hover:bg-base-200 px-3 py-2 rounded"
+                className={({ isActive }) =>
+                  `hover:text-primary/75 hover:bg-base-200 px-3 py-2 rounded ${
+                    isActive
+                      ? "text-primary font-semibold"
+                      : "text-base-content"
+                  }`
+                }
               >
                 Profile
               </NavLink>
@@ -268,7 +339,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Background Overlay when mobile menu open */}
+      {/* Background Overlay */}
       {mobileMenuOpen && (
         <div
           onClick={() => setMobileMenuOpen(false)}

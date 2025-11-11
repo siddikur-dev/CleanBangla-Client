@@ -41,8 +41,3 @@ body {
     --bg-base-100: #161b20;
     --bg-base-200: #171c21;
 }
-
-
-a.active {
-    color: #28a745;
-}

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 const RecentComplaintsCards = ({ issue }) => {
   const timeAgo = moment(issue.date).fromNow();
 
-//   click see details page to redirect see details page
+  //   click see details page to redirect see details page
   const navigate = useNavigate();
   const handleSeeDetails = (_id) => {
     navigate(`/issues/${_id}`);
@@ -19,21 +19,10 @@ const RecentComplaintsCards = ({ issue }) => {
         <div className="p-5">
           {/* Status & Time */}
           <div className="flex justify-between items-center mb-3">
-            {/* <span
-            className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${
-              issue.status === "resolved"
-                ? "bg-green-100 text-green-700"
-                : issue.status === "ongoing"
-                ? "bg-blue-100 text-blue-700"
-                : "bg-yellow-100 text-yellow-700"
-            }`}
-          >
-            {issue.status || "pending"}
-          </span> */}
-            <p className="text-xs font-medium bg-secondary/70 p-2 rounded-full uppercase tracking-wide mb-1">
+            <p className="text-xs font-medium bg-primary/60 p-2 rounded-full uppercase tracking-wide mb-1">
               {issue.category || "General"}
             </p>
-            <p className="text-sm text-gray-500">{timeAgo}</p>
+            <p className="text-sm text-base-content/70">{timeAgo}</p>
           </div>
 
           {/* Category */}
@@ -48,7 +37,7 @@ const RecentComplaintsCards = ({ issue }) => {
 
           {/* Bottom Section */}
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-2 text-gray-600 text-sm">
+            <div className="flex items-center gap-2 text-base-content/70 text-sm">
               <FaMapMarkerAlt />
               <span>{issue.location}</span>
             </div>

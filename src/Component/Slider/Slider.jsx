@@ -14,7 +14,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <div className="w-full h-[90vh]">
+    <div className="w-full h-[90vh] text-[#c8e5d5]">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -38,7 +38,7 @@ export default function HeroSlider() {
               alt="Garbage Issue"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
+            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center  px-6">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 Report Local Cleanliness Issues
               </h1>
@@ -59,7 +59,7 @@ export default function HeroSlider() {
               alt="Community Cleaning"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
+            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center  px-6 ">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 Join Community Cleanup Drives
               </h1>
@@ -80,7 +80,7 @@ export default function HeroSlider() {
               alt="Sustainability Action"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
+            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center  px-6">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 Act for a Sustainable Future
               </h1>
@@ -92,7 +92,7 @@ export default function HeroSlider() {
             </div>
           </div>
         </SwiperSlide>
-        {/* ✅ Slide 4 - Recycling & Awareness */}
+        {/*  Slide 4 - Recycling & Awareness */}
         <SwiperSlide>
           <div className="relative w-full h-full">
             <img
@@ -100,7 +100,7 @@ export default function HeroSlider() {
               alt="Recycling Awareness"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-6">
+            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center  px-6">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 Promote Recycling & Awareness
               </h1>
