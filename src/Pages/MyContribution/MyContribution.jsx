@@ -1,205 +1,84 @@
 import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../hook/useAxiosSecure";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import useAuth from "../../hook/useAuth";
+import { FaDownload, FaRegCalendarAlt } from "react-icons/fa";
 
 const MyContribution = () => {
-  const [issues, setIssues] = useState([]);
-  const [selectedIssue, setSelectedIssue] = useState(null);
-  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-
+  const [contributions, setContributions] = useState([]);
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
-  // Fetch issues for logged-in user
+
+  // Fetch logged-in user's contributions
   useEffect(() => {
     if (user?.email) {
-      axiosSecure.get(`/my-issues?email=${user.email}`).then((res) => {
-        setIssues(res.data);
+      axiosSecure.get(`/all-contributions?email=${user.email}`).then((res) => {
+        setContributions(res.data);
       });
     }
   }, [user, axiosSecure]);
 
-  // Delete issue
-  const confirmDelete = async () => {
-    await axiosSecure.delete(`/issues/${selectedIssue._id}`);
-    setIssues((prev) => prev.filter((i) => i._id !== selectedIssue._id));
-    setIsDeleteModalOpen(false);
-  };
-
-  // Update issue
-  const handleUpdateSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const updatedIssue = {
-      title: form.title.value,
-      category: form.category.value,
-      amount: form.amount.value,
-      description: form.description.value,
-      status: form.status.value,
-    };
-    await axiosSecure.put(`/issues/${selectedIssue._id}`, updatedIssue);
-
-    // Update local state instantly
-    setIssues((prev) =>
-      prev.map((i) =>
-        i._id === selectedIssue._id ? { ...i, ...updatedIssue } : i
-      )
-    );
-
-    setIsUpdateModalOpen(false);
+  // Download report
+  const handleDownload = (item) => {
+    const content = `
+    Issue Title: ${item.issueTitle}
+    Category: ${item.category}
+    Amount Paid: ৳${item.amount}
+    Date: ${new Date(item.date).toLocaleDateString()}
+    Status: ${item.status}
+    `;
+    const blob = new Blob([content], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${item.issueTitle}-report.pdf`;
+    link.click();
   };
 
   return (
-    <div className="p-6">
-      <h2 className="text-3xl font-bold mb-6 text-center">
-        My Reported <span className="text-primary">Issues</span>
+    <div className="p-6 max-w-6xl mx-auto space-y-8">
+      <h2 className="text-3xl font-bold text-center">
+        My <span className="text-primary">Contributions</span>
       </h2>
 
-      <div className="overflow-x-auto bg-base-100 rounded-xl shadow-md">
-        <table className="table w-full">
-          <thead className="bg-primary text-white">
-            <tr>
-              <th>#</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Amount (৳)</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {issues.map((issue, index) => (
-              <tr key={issue._id} className="hover:bg-base-200">
-                <td>{index + 1}</td>
-                <td>{issue.title}</td>
-                <td>{issue.category}</td>
-                <td>{issue.amount}</td>
-                <td>
-                  <span
-                    className={`px-3 py-1 rounded-full text-sm font-medium ${
-                      issue.status === "ongoing"
-                        ? "bg-yellow-200 text-yellow-800"
-                        : "bg-green-200 text-green-800"
-                    }`}
-                  >
-                    {issue.status}
-                  </span>
-                </td>
-                <td className="flex gap-3">
-                  <button
-                    onClick={() => {
-                      setSelectedIssue(issue);
-                      setIsUpdateModalOpen(true);
-                    }}
-                    className="text-blue-500 hover:text-blue-700"
-                  >
-                    <FaEdit size={18} />
-                  </button>
-                  <button
-                    onClick={() => {
-                      setSelectedIssue(issue);
-                      setIsDeleteModalOpen(true);
-                    }}
-                    className="text-red-500 hover:text-red-700"
-                  >
-                    <FaTrashAlt size={18} />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Update Modal */}
-      {isUpdateModalOpen && (
-        <div
-          onClick={() => setIsUpdateModalOpen(false)}
-          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="bg-base-100 p-6 rounded-xl w-full max-w-md shadow-lg"
-          >
-            <h3 className="text-xl font-semibold mb-4">Update Issue</h3>
-            <form onSubmit={handleUpdateSubmit} className="space-y-3">
-              <input
-                type="text"
-                name="title"
-                defaultValue={selectedIssue?.title}
-                placeholder="Title"
-                className="input input-bordered w-full"
-                required
-              />
-              <input
-                type="text"
-                name="category"
-                defaultValue={selectedIssue?.category}
-                placeholder="Category"
-                className="input input-bordered w-full"
-                required
-              />
-              <input
-                type="number"
-                name="amount"
-                defaultValue={selectedIssue?.amount}
-                placeholder="Amount"
-                className="input input-bordered w-full"
-                required
-              />
-              <textarea
-                name="description"
-                defaultValue={selectedIssue?.description}
-                placeholder="Description"
-                className="textarea textarea-bordered w-full"
-                required
-              />
-              <select
-                name="status"
-                defaultValue={selectedIssue?.status}
-                className="select select-bordered w-full"
-                required
-              >
-                <option value="ongoing">Ongoing</option>
-                <option value="ended">Ended</option>
-              </select>
-
-              <button type="submit" className="btn btn-primary w-full mt-2">
-                Save Changes
-              </button>
-            </form>
-          </div>
+      {contributions.length === 0 ? (
+        <div className="bg-base-200 p-12 rounded-xl text-center text-base-content/70 shadow-lg animate-fadeIn">
+          ❌ No Contributions Yet <br />
+          <span className="text-sm text-base-content/50 mt-2 inline-block">
+            You haven’t supported any issue so far.
+          </span>
         </div>
-      )}
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {contributions.map((item) => (
+            <div
+              key={item._id}
+              className="bg-base-100 shadow-lg rounded-xl p-6 flex flex-col justify-between hover:shadow-xl transition-all duration-300"
+            >
+              <div>
+                <h3 className="text-lg font-semibold mb-2">
+                  {item.issueTitle}
+                </h3>
+                <p className="text-sm text-base-content/70 capitalize mb-2">
+                  Category:{" "}
+                  <span className="text-primary">{item.category}</span>
+                </p>
+                <p className="text-base font-semibold text-primary mb-2">
+                  Paid Amount: ৳{item.amount}
+                </p>
+                <p className="text-sm text-base-content/60 flex items-center gap-1">
+                  <FaRegCalendarAlt />{" "}
+                  {new Date(item.date).toLocaleDateString()}
+                </p>
+              </div>
 
-      {/* Delete Confirmation Modal */}
-      {isDeleteModalOpen && (
-        <div
-          onClick={() => setIsDeleteModalOpen(false)}
-          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="bg-base-100 p-6 rounded-xl w-full max-w-sm text-center"
-          >
-            <h3 className="text-lg font-semibold mb-2">Confirm Deletion</h3>
-            <p className="text-base-content/70 mb-4">
-              Are you sure you want to delete “{selectedIssue?.title}”?
-            </p>
-            <div className="flex justify-center gap-3">
-              <button onClick={confirmDelete} className="btn btn-error btn-sm">
-                Delete
-              </button>
               <button
-                onClick={() => setIsDeleteModalOpen(false)}
-                className="btn btn-outline btn-sm"
+                onClick={() => handleDownload(item)}
+                className="mt-4 w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
               >
-                Cancel
+                <FaDownload /> Download Report
               </button>
             </div>
-          </div>
+          ))}
         </div>
       )}
     </div>

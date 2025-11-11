@@ -54,6 +54,7 @@ const IssueDetails = () => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     data.issueId = id;
+    data.category = detail.category;
     const newContributions = { ...data, date: new Date(), status: "ongoing" };
 
     axiosSecure.post("/all-contributions", newContributions).then((res) => {
