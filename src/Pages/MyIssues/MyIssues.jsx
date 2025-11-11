@@ -29,7 +29,6 @@ const MyIssues = () => {
     }
   }, [user, axiosSecure]);
 
-  // ✅ Delete issue
   const handleDelete = async (issue) => {
     Swal.fire({
       title: "Are you sure?",
@@ -53,6 +52,7 @@ const MyIssues = () => {
             showConfirmButton: false,
           });
         } catch (err) {
+          console.log(err);
           Swal.fire({
             title: "Error!",
             text: "Something went wrong while deleting.",
@@ -63,7 +63,6 @@ const MyIssues = () => {
     });
   };
 
-  // ✅ Update issue
   const handleUpdateSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
