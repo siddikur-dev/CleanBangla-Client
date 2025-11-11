@@ -82,7 +82,7 @@ const Navbar = () => {
               </NavLink>
 
               <NavLink
-                to="/profile"
+                to="/my-contribution"
                 className="text-base font-medium text-base-content hover:text-primary/75"
               >
                 My Contribution

@@ -52,10 +52,11 @@ const IssueDetails = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const newContribution = Object.fromEntries(formData.entries());
-    newContribution.issueId = id;
+    const data = Object.fromEntries(formData.entries());
+    data.issueId = id;
+    const newContributions = { ...data, date: new Date(), status: "ongoing" };
 
-    axiosSecure.post("/all-contributions", newContribution).then((res) => {
+    axiosSecure.post("/all-contributions", newContributions).then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
           position: "top-center",
@@ -65,6 +66,8 @@ const IssueDetails = () => {
           timer: 1500,
         });
         setShowModal(false);
+        //Add this line to update UI instantly
+        setContributors((prev) => [...prev, data]);
       }
     });
   };
@@ -142,7 +145,7 @@ const IssueDetails = () => {
         <div className="mt-6 text-center">
           <button
             onClick={() => setShowModal(true)}
-            className="bg-primary text-white px-8 py-3 rounded-lg font-semibold flex items-center gap-2 mx-auto hover:scale-105 transition"
+            className="btn-primary btn  gap-2 mx-auto hover:scale-105 duration-500 transition "
           >
             <FaMoneyBillWave /> Pay Clean-Up Contribution
           </button>
