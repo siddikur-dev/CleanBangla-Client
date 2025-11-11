@@ -1,38 +1,89 @@
 import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 import useAuth from "../../hook/useAuth";
-import { FaDownload, FaRegCalendarAlt } from "react-icons/fa";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import {
+  PDFDownloadLink,
+  Document,
+  Page,
+  Text,
+  View,
+  StyleSheet,
+} from "@react-pdf/renderer";
+
+// PDF Styles
+const styles = StyleSheet.create({
+  page: {
+    padding: 30,
+    fontSize: 12,
+    fontFamily: "Helvetica",
+  },
+  section: {
+    marginBottom: 10,
+  },
+  title: {
+    fontSize: 16,
+    marginBottom: 8,
+    fontWeight: "bold",
+    color: "#1d4ed8", // primary color
+  },
+  label: {
+    fontWeight: "bold",
+  },
+  value: {
+    marginBottom: 5,
+  },
+  separator: {
+    marginVertical: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: "#cccccc",
+  },
+});
+
+// PDF Document Component
+const ContributionPDF = ({ contributions }) => (
+  <Document>
+    <Page style={styles.page}>
+      <Text style={styles.title}>My Contributions Report</Text>
+      {contributions.map((item, index) => (
+        <View key={index} style={styles.section}>
+          <Text style={styles.value}>
+            <Text style={styles.label}>Issue Title:</Text> {item.issueTitle}
+          </Text>
+          <Text style={styles.value}>
+            <Text style={styles.label}>Category:</Text> {item.category}
+          </Text>
+          <Text style={styles.value}>
+            <Text style={styles.label}>Paid Amount:</Text> ৳{item.amount}
+          </Text>
+          <Text style={styles.value}>
+            <Text style={styles.label}>Date:</Text>{" "}
+            {new Date(item.date).toLocaleDateString()}
+          </Text>
+          <Text style={styles.value}>
+            <Text style={styles.label}>Status:</Text> {item.status}
+          </Text>
+          <View style={styles.separator} />
+        </View>
+      ))}
+    </Page>
+  </Document>
+);
 
 const MyContribution = () => {
   const [contributions, setContributions] = useState([]);
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
 
-  // Fetch logged-in user's contributions
+  // Fetch only logged-in user's contributions
   useEffect(() => {
     if (user?.email) {
-      axiosSecure.get(`/all-contributions?email=${user.email}`).then((res) => {
-        setContributions(res.data);
-      });
+      axiosSecure
+        .get(`/all-contributions?email=${user.email}`)
+        .then((res) => setContributions(res.data))
+        .catch((err) => console.log(err));
     }
   }, [user, axiosSecure]);
-
-  // Download report
-  const handleDownload = (item) => {
-    const content = `
-    Issue Title: ${item.issueTitle}
-    Category: ${item.category}
-    Amount Paid: ৳${item.amount}
-    Date: ${new Date(item.date).toLocaleDateString()}
-    Status: ${item.status}
-    `;
-    const blob = new Blob([content], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `${item.issueTitle}-report.pdf`;
-    link.click();
-  };
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-8">
@@ -48,38 +99,43 @@ const MyContribution = () => {
           </span>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {contributions.map((item) => (
-            <div
-              key={item._id}
-              className="bg-base-100 shadow-lg rounded-xl p-6 flex flex-col justify-between hover:shadow-xl transition-all duration-300"
-            >
-              <div>
-                <h3 className="text-lg font-semibold mb-2">
-                  {item.issueTitle}
-                </h3>
-                <p className="text-sm text-base-content/70 capitalize mb-2">
-                  Category:{" "}
-                  <span className="text-primary">{item.category}</span>
-                </p>
-                <p className="text-base font-semibold text-primary mb-2">
-                  Paid Amount: ৳{item.amount}
-                </p>
-                <p className="text-sm text-base-content/60 flex items-center gap-1">
-                  <FaRegCalendarAlt />{" "}
-                  {new Date(item.date).toLocaleDateString()}
-                </p>
-              </div>
-
-              <button
-                onClick={() => handleDownload(item)}
-                className="mt-4 w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {contributions.map((item) => (
+              <div
+                key={item._id}
+                className="bg-base-100 shadow-lg rounded-xl p-6 flex flex-col justify-between hover:shadow-xl transition-all duration-300"
               >
-                <FaDownload /> Download Report
-              </button>
-            </div>
-          ))}
-        </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">
+                    {item.issueTitle}
+                  </h3>
+                  <p className="text-sm text-base-content/70 capitalize mb-2">
+                    Category:{" "}
+                    <span className="text-primary">{item.category}</span>
+                  </p>
+                  <p className="text-base font-semibold text-primary mb-2">
+                    Paid Amount: ৳{item.amount}
+                  </p>
+                  <p className="text-sm text-base-content/60 flex items-center gap-1">
+                    <FaRegCalendarAlt />{" "}
+                    {new Date(item.date).toLocaleDateString()}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-6">
+            <PDFDownloadLink
+              document={<ContributionPDF contributions={contributions} />}
+              fileName="my_contributions_report.pdf"
+              className="btn btn-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              {({ loading }) => (loading ? "Generating PDF..." : "Download PDF")}
+            </PDFDownloadLink>
+          </div>
+        </>
       )}
     </div>
   );
