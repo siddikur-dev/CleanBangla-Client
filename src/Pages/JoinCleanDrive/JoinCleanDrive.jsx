@@ -10,7 +10,7 @@ const JoinCleanDrive = () => {
           className="flex flex-col items-center justify-center"
         >
           <FaHandsHelping className="text-primary text-6xl mb-4" />
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold  mb-3">
             Join Our Next Clean Drive
           </h2>
           <p className="text-base md:text-lg text-base-content/70 max-w-2xl mx-auto mb-6">

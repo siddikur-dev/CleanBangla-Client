@@ -7,7 +7,7 @@ import AuthProvider from "./Provider/AuthProvider/AuthProvider.jsx";
 import { Toaster } from "react-hot-toast";
 import { ToastContainer } from "react-toastify";
 
-// 🪄 AOS Import
+//  AOS Import
 import AOS from "aos";
 import "aos/dist/aos.css";
 

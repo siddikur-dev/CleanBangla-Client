@@ -12,7 +12,7 @@ const reviews = [
     name: "Sadia Hossain",
     photo: "https://randomuser.me/api/portraits/women/25.jpg",
     review:
-      "Toy Universe is an absolute delight! The vibrant design and easy navigation make browsing toys a joy. My kids are thrilled!",
+      "A massive commercial complex is being constructed illegally on land designated for residential purposes only. ",
     rating: 5,
   },
   {
@@ -20,7 +20,7 @@ const reviews = [
     name: "Arif Mahmud",
     photo: "https://randomuser.me/api/portraits/men/33.jpg",
     review:
-      "A great selection of toys with smooth performance. Adding and managing toys was super easy. Love the clean interface!",
+      "A rapidly expanding sinkhole has developed on the Dhaka-Mymensingh highway, creating extreme danger for daily commuters.",
     rating: 4,
   },
   {
@@ -28,7 +28,7 @@ const reviews = [
     name: "Nusrat Jahan",
     photo: "https://randomuser.me/api/portraits/women/12.jpg",
     review:
-      "Impressive UI! It feels polished and professional. The responsiveness and animations make it stand out from others.",
+      "The public children's park at Shahbagh has been severely vandalized, rendering most play equipment unusable and dangerous.",
     rating: 5,
   },
   {
@@ -44,21 +44,37 @@ const reviews = [
     name: "Mahi Rahman",
     photo: "https://randomuser.me/api/portraits/women/60.jpg",
     review:
-      "From login to exploring toys, everything feels modern and premium. One of the best toy platforms in Bangladesh!",
+      "A residential building has illegally converted its rooftop into a commercial restaurant without proper permits.",
     rating: 5,
   },
 ];
 
 const Review = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-base-200 to-base-100">
+    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-base-200 to-base-100">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold text-primary mb-3 heading-font">
-          What Our <span className="text-secondary">Users</span> Say
-        </h2>
-        <p className="text-base-content/70 max-w-2xl mx-auto mb-12">
-          Hear from parents and collectors who love Toy Universe BD!
-        </p>
+        <div className="text-center mb-12">
+          {/* Title with AOS animation */}
+          <h2
+            data-aos="fade-down"
+            data-aos-duration="1000"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold mt-4 leading-tight"
+          >
+            What Our Reporters Say
+          </h2>
+
+          {/* Description with AOS animation */}
+          <p
+            data-aos="fade-up"
+            data-aos-duration="1200"
+            data-aos-delay="200"
+            className="text-base-content/70 max-w-2xl mx-auto mt-4"
+          >
+            Hear directly from citizens and community members about the issues
+            they face and the solutions they've reported. Stay informed and see
+            how CleanBangla is making a difference!
+          </p>
+        </div>
 
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
@@ -81,7 +97,7 @@ const Review = () => {
         >
           {reviews.map((rev) => (
             <SwiperSlide key={rev.id}>
-              <div className="p-6 border-t-4 border-secondary hover:-translate-y-1 text-center group card w-full shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:shadow-2xl bg-base-300/70 min-h-[370px] flex flex-col justify-between items-center">
+              <div className="p-6 border-t-4 border-primary/60 text-center group card w-full shadow-lg rounded-lg overflow-visible transform transition-all duration-300 hover:-translate-y-[-1px] hover:shadow-2xl bg-base-300/70 min-h-[370px] flex flex-col justify-between items-center">
                 <FaQuoteLeft className="text-4xl text-secondary mb-3" />
 
                 <p className="text-base-content/80 italic leading-relaxed mb-4 px-2">

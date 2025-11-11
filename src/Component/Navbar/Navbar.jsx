@@ -128,25 +128,32 @@ const Navbar = () => {
 
           {user ? (
             <div className="relative group">
+              {/* Profile Image */}
               <img
                 src={
                   user.photoURL ||
                   "https://cdn-icons-png.flaticon.com/128/3135/3135715.png"
                 }
-                alt={user.displayName}
-                className="w-10 h-10 rounded-full border-2 border-gray-300 cursor-pointer transition-all duration-200"
+                alt={user.displayName || "User"}
+                className="w-10 h-10 rounded-full border-2  cursor-pointer transition-all duration-200 "
               />
 
-              <div className="absolute right-0 mt-2 w-40 bg-base-100 border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transform transition-all duration-200 origin-top-right z-50">
+              {/* Dropdown Menu */}
+              <div
+                className="absolute right-0 mt-3 w-44 bg-base-100 border rounded-xl shadow-lg opacity-0 invisible 
+      group-hover:opacity-100 group-hover:visible transform scale-95 group-hover:scale-100 
+      transition-all duration-300 origin-top-right z-50"
+              >
                 <button
                   onClick={() => navigate("/profile")}
-                  className="flex items-center gap-2 px-4 py-2 w-full hover:bg-base-200 text-left"
+                  className="flex items-center gap-2 px-4 py-2 w-full hover:bg-base-200 text-left transition-all duration-200"
                 >
-                  <FaUser /> Profile
+                  <FaUser className="text-primary" /> Profile
                 </button>
+
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-2 px-4 py-2 w-full hover:bg-base-200 text-left text-red-500"
+                  className="flex items-center gap-2 px-4 py-2 w-full hover:bg-base-200 text-left text-red-500 transition-all duration-200"
                 >
                   <TbLogout2 /> Logout
                 </button>
