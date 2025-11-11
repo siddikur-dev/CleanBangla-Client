@@ -25,27 +25,27 @@ Toy Universe is designed to provide a seamless online toy store experience where
 
 ## 🚀 Key Features
 
-✅ **Authentication System**
+  **Authentication System**
 
 - Firebase-based login, registration, and logout.
 - Password reset via email.
 - Protected routes for authorized users only.
 
-✅ **User Profile**
+  **User Profile**
 
 - Displays user name, email, and photo.
 - Edit and update user info using Firebase `updateProfile()` method.
 
-✅ **Toy Management**
+  **Toy Management**
 
 - Add, update, and remove toy data.
 - Display toys in categories and show detailed toy pages.
 
-✅ **Responsive UI**
+  **Responsive UI**
 
 - Optimized for mobile, tablet, and desktop using Tailwind CSS.
 
-✅ **Error Handling**
+  **Error Handling**
 
 - Toast notifications for actions and errors.
 - Custom 404 error page with navigation options.

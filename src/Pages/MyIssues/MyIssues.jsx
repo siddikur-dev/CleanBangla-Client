@@ -15,12 +15,12 @@ const MyIssues = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
 
-  // ✅ Initialize AOS
+  //   Initialize AOS
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
-  // ✅ Fetch logged-in user's issues
+  //   Fetch logged-in user's issues
   useEffect(() => {
     if (user?.email) {
       axiosSecure.get(`/my-issues?email=${user.email}`).then((res) => {
@@ -130,7 +130,7 @@ const MyIssues = () => {
           className="overflow-x-auto bg-base-100 rounded-xl shadow-md"
         >
           <table className="table w-full">
-            {/* ✅ Table Header */}
+            {/*   Table Header */}
             <thead className="bg-primary text-white">
               <tr>
                 <th className="hidden sm:table-cell">#</th>
@@ -142,7 +142,7 @@ const MyIssues = () => {
               </tr>
             </thead>
 
-            {/* ✅ Table Body */}
+            {/*   Table Body */}
             <tbody>
               {issues.map((issue, index) => (
                 <tr
@@ -172,7 +172,7 @@ const MyIssues = () => {
                     </span>
                   </td>
 
-                  {/* ✅ Action Column - always visible */}
+                  {/*   Action Column - always visible */}
                   <td className="flex gap-3">
                     <button
                       onClick={() => {
@@ -197,7 +197,7 @@ const MyIssues = () => {
         </div>
       )}
 
-      {/* ✅ Update Modal */}
+      {/*   Update Modal */}
       {isUpdateModalOpen && (
         <div
           onClick={() => setIsUpdateModalOpen(false)}
