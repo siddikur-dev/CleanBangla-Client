@@ -14,12 +14,13 @@ const Allissues = () => {
     });
   }, [axiosSecure]);
   return (
-    <div className="container mx-auto ">
+    <div className="container mx-auto py-12 md:py-16 lg:py-20 ">
       {/* Helmet title */}
       <title>All Issues - CleanBangla</title>
       {/* --- Section Title --- */}
       <div data-aos="fade-right">
-        <h2 className="text-3xl font-bold text-center mt-12">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center  
+">
           Discover & Support{" "}
           <span className="text-primary">
             <Typewriter

@@ -40,26 +40,18 @@ const CommunityStats = () => {
         {/* --- Section Header --- */}
         <h2
           data-aos="fade-down"
-          className="text-3xl font-bold text-center mt-12 text-primary"
+          className=" text-2xl md:text-3xl lg:text-4xl font-bold text-center mt-4  leading-tight"
         >
-          <Typewriter
-            words={["Our Community Impact", "Together We Make Change"]}
-            loop={true}
-            cursor
-            cursorStyle="|"
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={2000}
-          />
+          Together We Make Change
         </h2>
 
         <p
           data-aos="fade-down"
           data-aos-delay="200"
-          className="text-center text-base text-base-content/70 max-w-2xl mx-auto pt-3 pb-5"
+          className="text-center text-base text-base-content/70 max-w-2xl mx-auto pt-3 pb-6"
         >
-          We're proud to serve thousands of users and resolve countless issues
-          every day.
+          We're proud to serve thousands of users, helping communities report
+          issues and create positive change every day.
         </p>
 
         {/* --- Stats Cards --- */}
@@ -67,9 +59,9 @@ const CommunityStats = () => {
           {stats.map((item) => (
             <div
               key={item.id}
-              data-aos="fade-up"
+              data-aos="zoom-in-up"
               data-aos-duration="1000"
-              className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-2xl border-l-4 border-primary/40 shadow-sm    hover:shadow-2xl hover:border-primary  duration-300"
+              className="flex flex-col items-center justify-center p-6 bg-base-100 rounded-2xl border-l-4 border-primary/40 shadow-md  hover:border-primary  transform transition-all  hover:shadow-xl duration-300"
             >
               <div className="text-4xl mb-2">{item.icon}</div>
 

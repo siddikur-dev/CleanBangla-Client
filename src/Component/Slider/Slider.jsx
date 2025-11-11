@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { useNavigate } from "react-router";
 
 export default function HeroSlider() {
   const progressCircle = useRef(null);
@@ -12,7 +13,10 @@ export default function HeroSlider() {
     progressCircle.current.style.setProperty("--progress", 1 - progress);
     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   };
-
+  const navigate = useNavigate();
+  const handleReport = () => {
+    navigate("/add-issue");
+  };
   return (
     <div className="w-full h-[90vh] text-[#c8e5d5]">
       <Swiper
@@ -46,7 +50,8 @@ export default function HeroSlider() {
                 Spot garbage buildup, broken footpaths, or illegal dumping in
                 your area and report instantly.
               </p>
-              <button className="btn btn-primary mt-5">Report an issues</button>
+
+              <button onClick={handleReport} className="btn btn-primary mt-5">Report an issues</button>
             </div>
           </div>
         </SwiperSlide>
@@ -67,7 +72,9 @@ export default function HeroSlider() {
                 Take part in organized cleanup programs and make your city a
                 cleaner, healthier place.
               </p>
-              <button className="btn btn-primary mt-5">Report an issues</button>
+              <button onClick={handleReport} className="btn btn-primary mt-5">
+                Report an issues
+              </button>
             </div>
           </div>
         </SwiperSlide>
@@ -88,7 +95,9 @@ export default function HeroSlider() {
                 Encourage recycling, reduce waste, and support eco-friendly
                 community actions.
               </p>
-              <button className="btn btn-primary mt-5">Report an issues</button>
+              <button onClick={handleReport} className="btn btn-primary mt-5">
+                Report an issues
+              </button>
             </div>
           </div>
         </SwiperSlide>
@@ -108,7 +117,9 @@ export default function HeroSlider() {
                 Spread awareness about recycling and inspire others to adopt
                 sustainable habits.
               </p>
-              <button className="btn btn-primary mt-5">Report an issues</button>
+              <button onClick={handleReport} className="btn btn-primary mt-5">
+                Report an issues
+              </button>
             </div>
           </div>
         </SwiperSlide>
