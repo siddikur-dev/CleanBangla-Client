@@ -60,7 +60,7 @@ const Review = () => {
             data-aos-duration="1000"
             className="text-2xl md:text-3xl lg:text-4xl font-bold mt-4 leading-tight"
           >
-            What Our Reporters Say
+            What Our <span className="text-primary">Reporters</span> Say
           </h2>
 
           {/* Description with AOS animation */}

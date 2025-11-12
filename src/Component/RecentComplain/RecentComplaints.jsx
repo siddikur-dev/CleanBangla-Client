@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaTrash, FaBuilding, FaHammer, FaRoad } from "react-icons/fa";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 import RecentComplaintsCards from "./RecentComplaintsCards";
+import { Fade, Zoom } from "react-awesome-reveal";
 
 const RecentComplaints = () => {
   const categories = [
@@ -52,21 +53,23 @@ const RecentComplaints = () => {
     <div className="bg-base-200 transition-colors duration-300">
       <div className="container mx-auto">
         <section className="py-12 md:py-16 lg:py-20 px-6 lg:px-10">
-          {/* Title */}
-          <div data-aos="zoom-in-right">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mt-4 leading-tight text-base-content">
-              Report Community Issues
-            </h2>
-          </div>
+          {/* Title */}{" "}
+          <div className="text-center mt-4">
+            {/* Title */}
+            <Fade cascade direction="right" triggerOnce>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-base-content">
+                Report Community <span className="text-primary">Issues</span>
+              </h2>
+            </Fade>
 
-          {/* Description */}
-          <div data-aos="zoom-in-left">
-            <p className="text-center md:text-lg text-base-content/70 max-w-2xl mx-auto pt-3 pb-10">
-              Select a category to view or report issues. Explore different
-              types of community problems easily.
-            </p>
+            {/* Description */}
+            <Zoom direction="left" triggerOnce>
+              <p className="md:text-lg text-base-content/70 max-w-2xl mx-auto pt-3 pb-10">
+                Select a category to view or report issues. Explore different
+                types of community problems easily.
+              </p>
+            </Zoom>
           </div>
-
           {/* Category Cards */}
           <div
             data-aos="flip-left"
@@ -103,7 +106,7 @@ const RecentComplaints = () => {
         <section className=" px-6 lg:px-10">
           <div data-aos="fade-up-left">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mt-4  leading-tight">
-              Our Recent Complaints
+              Our Recent <span className="text-primary">Complaints</span>
             </h2>
           </div>
           <div data-aos="fade-up-right">

@@ -42,7 +42,7 @@ const CommunityStats = () => {
           data-aos="fade-down"
           className=" text-2xl md:text-3xl lg:text-4xl font-bold text-center mt-4  leading-tight"
         >
-          Together We Make Change
+          Together We <span className="text-primary">Make Change</span>
         </h2>
 
         <p
