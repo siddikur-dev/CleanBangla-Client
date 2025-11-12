@@ -81,7 +81,6 @@ const Register = () => {
     signInGoogle()
       .then((result) => {
         const user = result.user;
-        console.log(user);
         Swal.fire({
           position: "top-center",
           icon: "success",

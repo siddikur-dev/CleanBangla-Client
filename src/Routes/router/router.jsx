@@ -15,6 +15,9 @@ import AddIssue from "../../Pages/AddIssue/AddIssue";
 import IssueDetails from "../../Pages/IssueDetails/IssueDetails";
 import MyIssues from "../../Pages/MyIssues/MyIssues";
 import MyContribution from "../../Pages/MyContribution/MyContribution";
+import Refund from "../../Pages/Legal/Refund";
+import Privacy from "../../Pages/Legal/Privacy";
+import Terms from "../../Pages/Legal/Terms";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +88,18 @@ const router = createBrowserRouter([
       {
         path: "/about",
         Component: About,
+      },
+      {
+        path: "/refund",
+        Component: Refund,
+      },
+      {
+        path: "/privacy",
+        Component: Privacy,
+      },
+      {
+        path: "/terms",
+        Component: Terms,
       },
       {
         path: "/feature",

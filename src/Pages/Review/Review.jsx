@@ -65,8 +65,15 @@ const Review = () => {
             description={
               "Hear directly from citizens and community members about the issues they face and the solutions they've reported. Stay informed and see how CleanBangla is making a difference!"
             }
-            titleProps={{ "data-aos": "fade-down", "data-aos-duration": "1000" }}
-            descProps={{ "data-aos": "fade-up", "data-aos-duration": "1200", "data-aos-delay": "200" }}
+            titleProps={{
+              "data-aos": "fade-down",
+              "data-aos-duration": "1000",
+            }}
+            descProps={{
+              "data-aos": "fade-up",
+              "data-aos-duration": "1200",
+              "data-aos-delay": "200",
+            }}
           />
         </div>
 
@@ -92,7 +99,7 @@ const Review = () => {
           {reviews.map((rev) => (
             <SwiperSlide key={rev.id}>
               <div className="p-6 border-t-4 border-primary/60 hover:border-primary text-center group card w-full  rounded-lg  transform transition-all duration-300 hover:-translate-y-[-1px] shadow-xl hover:shadow-2xl bg-base-100  min-h-[370px] flex flex-col justify-between items-center">
-                <FaQuoteLeft className="text-4xl text-secondary mb-3" />
+                <FaQuoteLeft className="text-4xl text-primary/70 hover:text-primary mb-3" />
 
                 <p className="text-base-content/80 italic leading-relaxed mb-4 px-2">
                   “{rev.review}”

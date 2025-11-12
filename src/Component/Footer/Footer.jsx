@@ -6,7 +6,7 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <footer className="bg-base-100 border-t border-secondary py-10 px-5 md:px-16">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 items-start">
         {/* Brand */}
         <div className="flex flex-col items-center md:items-start">
           <h2 className="text-3xl font-extrabold  mb-2 flex items-center gap-2">
@@ -23,11 +23,11 @@ const Footer = () => {
         </div>
 
         {/* Useful Links */}
-        <div className="text-center  hidden lg:block">
+        <div className="text-center md:text-left">
           <h3 className="text-lg font-semibold text-primary mb-3">
             Useful Links
           </h3>
-          <ul className="space-y-2 ">
+          <ul className="space-y-2">
             <li>
               <Link to="/" className="hover:text-primary">
                 Home
@@ -35,7 +35,7 @@ const Footer = () => {
             </li>
             <li>
               <Link to="/feature" className="hover:text-primary">
-                Feature
+                Features
               </Link>
             </li>
 
@@ -48,21 +48,21 @@ const Footer = () => {
         </div>
 
         {/* Legal */}
-        <div className="text-center hidden lg:block ">
+        <div className="text-center md:text-left">
           <h3 className="text-lg font-semibold text-primary mb-3">Legal</h3>
-          <ul className="space-y-2 ">
+          <ul className="space-y-2">
             <li>
-              <Link to="/" className="hover:text-primary">
+              <Link to="/terms" className="hover:text-primary">
                 Terms &amp; Conditions
               </Link>
             </li>
             <li>
-              <Link to="/F" className="hover:text-primary">
+              <Link to="/privacy" className="hover:text-primary">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link to="/" className="hover:text-primary">
+              <Link to="/refund" className="hover:text-primary">
                 Refund Policy
               </Link>
             </li>
@@ -70,34 +70,37 @@ const Footer = () => {
         </div>
 
         {/* Social & Contact */}
-        <div className="text-center md:items-end">
+        <div className="text-center md:text-right">
           <h3 className="text-lg font-semibold text-primary mb-3">Connect</h3>
           <p className="mb-3">Follow us on social media</p>
-          <div className="flex justify-center gap-3">
-            <Link
-              to="https://www.facebook.com/siddikur.dev"
+          <div className="flex justify-center md:justify-end gap-3 text-xl">
+            <a
+              href="https://www.facebook.com/siddikur.dev"
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
+              className="hover:text-primary"
             >
               <FaFacebookF />
-            </Link>
-            <Link
-              to="https://www.x.com/siddikur_dev"
+            </a>
+            <a
+              href="https://www.x.com/siddikur_dev"
               target="_blank"
               rel="noreferrer"
-              aria-label="Instagram"
+              aria-label="X (Twitter)"
+              className="hover:text-primary"
             >
               <FaXTwitter />
-            </Link>
-            <Link
-              to="https://www.linkedin.com/in/dev-siddikur/"
+            </a>
+            <a
+              href="https://www.linkedin.com/in/dev-siddikur/"
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
+              className="hover:text-primary"
             >
               <FaLinkedinIn />
-            </Link>
+            </a>
           </div>
         </div>
       </div>
