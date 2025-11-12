@@ -5,6 +5,7 @@ import Faq from "../Faq/Faq";
 import RecentComplaints from "../../Component/RecentComplain/RecentComplaints";
 import CommunityStats from "../CommunityStats/CommunityStats";
 import JoinCleanDrive from "../JoinCleanDrive/JoinCleanDrive";
+import ValueImpact from "../ValueImpact/ValueImpact";
 
 const Home = () => {
   return (
@@ -13,8 +14,8 @@ const Home = () => {
       <RecentComplaints />
       <CommunityStats />
       <JoinCleanDrive />
+      <ValueImpact></ValueImpact>
       <Review />
-      <Faq />
     </div>
   );
 };

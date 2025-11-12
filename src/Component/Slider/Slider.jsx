@@ -51,7 +51,9 @@ export default function HeroSlider() {
                 your area and report instantly.
               </p>
 
-              <button onClick={handleReport} className="btn btn-primary mt-5">Report an issues</button>
+              <button onClick={handleReport} className="btn btn-primary mt-5">
+                Report an issues
+              </button>
             </div>
           </div>
         </SwiperSlide>

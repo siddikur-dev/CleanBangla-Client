@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Fade, Zoom, Slide } from "react-awesome-reveal";
 import { Typewriter } from "react-simple-typewriter";
-import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CountUp from "react-countup";
@@ -14,6 +13,7 @@ import {
   FaTree,
   FaCity,
 } from "react-icons/fa";
+import Faq from "../Faq/Faq";
 
 const steps = [
   {
@@ -41,11 +41,12 @@ const steps = [
     img: "https://images.unsplash.com/photo-1616628188502-fb78dbe7e1f2?auto=format&fit=crop&w=800&q=60",
   },
 ];
+
 const About = () => {
   const sectionRef = useRef(null);
+
   useEffect(() => {
     const tl = gsap.timeline({ paused: true });
-
     tl.fromTo(
       ".card1",
       { x: -200, opacity: 0, scale: 0.9 },
@@ -55,7 +56,7 @@ const About = () => {
         ".card2",
         { x: -200, opacity: 0, scale: 0.9 },
         { x: 0, opacity: 1, scale: 1, duration: 0.8, ease: "power3.out" },
-        "-=0.4" // overlap a bit for smoother flow
+        "-=0.4"
       )
       .fromTo(
         ".card3",
@@ -64,7 +65,6 @@ const About = () => {
         "-=0.4"
       );
 
-    // Play animation when section is visible
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) tl.play();
@@ -75,47 +75,52 @@ const About = () => {
 
     return () => observer.disconnect();
   }, []);
+
   return (
     <div className="bg-base-200 text-base-content">
-      {/* 🌿 Hero / Introduction Section */}
-      <div
-        className="relative min-h-[80vh] flex flex-col justify-center items-center text-center px-6 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDzBEW2f4YGDbNzjdCIe194ymvUhDalvivXQ&s')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10">
+      {/* About us  Section */}
+      <div className="relative min-h-[80vh] bg-base-200 flex flex-col justify-center px-6 md:px-12 overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-black bg-cover bg-center scale-105"
+          style={{
+            backgroundImage:
+              "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1OH7nL0RGqUv_aKfuH0hI40zpqbELR7iXlhoi-2psiOTLJML6')",
+          }}
+        ></div>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+        {/* Content */}
+        <div className="relative max-w-4xl mx-auto text-left space-y-4">
           <Zoom triggerOnce>
-            <h1 className="text-3xl md:text-5xl font-extrabold text-primary mb-4">
-              <Typewriter
-                words={["Building a Cleaner, Greener, and Smarter Bangladesh"]}
-                loop={false}
-                cursor
-                typeSpeed={60}
-                delaySpeed={1000}
-              />
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4">
+              About Us
             </h1>
           </Zoom>
+
           <Fade direction="up" triggerOnce>
-            <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-6">
+            <p className="text-base md:text-lg text-white/90 leading-relaxed mb-6">
               CleanBangla is not just a cleaning platform — it’s a social
-              movement. We combine cleanliness, environmental awareness, and
-              human responsibility in one mission.
+              movement. We unite cleanliness, environmental awareness, and human
+              responsibility under one vision — to build a cleaner and more
+              conscious Bangladesh.
             </p>
-            <button className="btn btn-primary rounded-full px-8 text-white font-semibold shadow-lg hover:scale-105 transition-transform duration-300">
-              Join Us
+
+            {/* Breadcrumb Button */}
+            <button className="btn bg-transparent border-2 border-primary text-white rounded-full px-8 font-semibold shadow-md  transition-all duration-300">
+              Home → About
             </button>
           </Fade>
         </div>
       </div>
 
+      {/* 🚶 Steps Section */}
       <section
         ref={sectionRef}
-        className="bg-gray-50 py-20 px-6 md:px-12 lg:px-24"
+        className="bg-base-200 py-20 px-6 md:px-12 lg:px-24 container mx-auto"
       >
-        {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
             Get Cleaner <span className="text-green-500">Space</span> In{" "}
@@ -127,12 +132,12 @@ const About = () => {
           </p>
         </div>
 
-        {/* Steps Grid */}
+        {/* Step Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step) => (
             <div
               key={step.id}
-              className="step-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
+              className="bg-base-100 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
             >
               <div className="relative">
                 <img
@@ -154,6 +159,7 @@ const About = () => {
           ))}
         </div>
       </section>
+
       {/* 🧠 Our Story */}
       <div className="max-w-5xl mx-auto px-4 py-16 text-center">
         <Slide direction="up" triggerOnce>
@@ -169,12 +175,12 @@ const About = () => {
           <img
             src="https://images.unsplash.com/photo-1565372918679-bbe6e8e9e31f?auto=format&fit=crop&w=900&q=80"
             alt="Our Story"
-            className="mt-8 rounded-2xl shadow-xl mx-auto"
+            className="mt-8 rounded-2xl shadow-xl mx-auto hover:scale-[1.02] transition-transform duration-300"
           />
         </Slide>
       </div>
 
-      {/* 🚀 Our Mission */}
+      {/* 🚀 Mission Section */}
       <div className="bg-base-100 py-16">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center px-4">
           <Slide direction="left" triggerOnce>
@@ -198,84 +204,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* ❤️ Our Core Values */}
-      <div className="py-16 text-center">
-        <Zoom triggerOnce>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">
-            Our Core Values
-          </h2>
-        </Zoom>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
-          {[
-            {
-              icon: <FaRecycle size={40} className="text-primary" />,
-              title: "Responsibility",
-              desc: "Cleanliness is everyone's responsibility.",
-            },
-            {
-              icon: <FaLeaf size={40} className="text-green-500" />,
-              title: "Sustainability",
-              desc: "We care for the planet and our future.",
-            },
-            {
-              icon: <FaUsers size={40} className="text-blue-500" />,
-              title: "Community",
-              desc: "Together, we can make a difference.",
-            },
-            {
-              icon: <FaLightbulb size={40} className="text-yellow-500" />,
-              title: "Innovation",
-              desc: "Creative solutions for a cleaner world.",
-            },
-          ].map((value, i) => (
-            <Fade key={i} triggerOnce>
-              <div className="bg-base-100 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
-                {value.icon}
-                <h3 className="text-xl font-semibold mt-4">{value.title}</h3>
-                <p className="text-base-content/70 mt-2">{value.desc}</p>
-              </div>
-            </Fade>
-          ))}
-        </div>
-      </div>
-
-      {/* 🧩 Our Impact */}
-      <div
-        className="relative py-20 text-center text-white"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1350&q=80')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/60"></div>
-        <div className="relative z-10 max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-primary-content">
-            Our Impact
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { icon: <FaBroom />, label: "Cleaned Areas", end: 50 },
-              { icon: <FaTree />, label: "Trees Planted", end: 1000 },
-              { icon: <FaUsers />, label: "Volunteers", end: 500 },
-              { icon: <FaCity />, label: "City Campaigns", end: 10 },
-            ].map((item, i) => (
-              <Fade key={i} triggerOnce>
-                <div className="flex flex-col items-center">
-                  <div className="text-4xl mb-2">{item.icon}</div>
-                  <h3 className="text-3xl font-bold">
-                    <CountUp end={item.end} duration={3} />+
-                  </h3>
-                  <p className="text-sm text-gray-300">{item.label}</p>
-                </div>
-              </Fade>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* 👥 Meet Our Team */}
+      {/* 👥 Team Section */}
       <div className="py-16 text-center bg-base-100">
         <Zoom triggerOnce>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-10">
@@ -320,6 +249,8 @@ const About = () => {
           ))}
         </div>
       </div>
+
+      <Faq />
     </div>
   );
 };
