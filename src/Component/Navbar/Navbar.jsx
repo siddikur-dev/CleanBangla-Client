@@ -54,7 +54,9 @@ const Navbar = () => {
           to="/"
           className="text-3xl logo-font font-bold flex items-center gap-1"
         >
-          <span className="text-primary">CleanBangla</span>
+          {/* <span className="text-primary"> */}
+          Clean <span className="text-primary">Bangla</span>
+          {/* </span> */}
           <img
             className="w-8 border rounded-full bg-primary"
             src="/logo.png"

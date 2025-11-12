@@ -83,6 +83,10 @@ const router = createBrowserRouter([
         Component: ResetPass,
       },
       {
+        path: "/about",
+        Component: About,
+      },
+      {
         path: "/feature",
         element: (
           <PrivateRoute>
@@ -90,11 +94,12 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
+      {
+        path: "/*",
+        Component: ErrorPage,
+      },
     ],
-  },
-  {
-    path: "/*",
-    Component: ErrorPage,
   },
 ]);
 

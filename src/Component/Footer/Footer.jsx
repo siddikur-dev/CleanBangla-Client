@@ -9,18 +9,22 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Brand */}
         <div className="flex flex-col items-center md:items-start">
-          <h2 className="text-3xl font-extrabold text-primary mb-2 flex items-center gap-2">
-            Clean Bangla
+          <h2 className="text-3xl font-extrabold  mb-2 flex items-center gap-2">
+            Clean <span className="text-primary">Bangla</span>
+            <img
+              className="bg-primary rounded-full w-8"
+              src="/logo.png"
+              alt=""
+            />
           </h2>
           <p className="text-sm text-center md:text-left ">
-            A world of joy and imagination for every child. Support local toy
-            sellers and discover playful learning!
+            A community movement for a cleaner, greener Bangladesh.
           </p>
         </div>
 
         {/* Useful Links */}
         <div className="text-center  hidden lg:block">
-          <h3 className="text-lg font-semibold text-secondary mb-3">
+          <h3 className="text-lg font-semibold text-primary mb-3">
             Useful Links
           </h3>
           <ul className="space-y-2 ">
@@ -36,8 +40,8 @@ const Footer = () => {
             </li>
 
             <li>
-              <Link to="/profile" className="hover:text-primary">
-                Profile
+              <Link to="/about" className="hover:text-primary">
+                About
               </Link>
             </li>
           </ul>
