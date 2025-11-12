@@ -204,7 +204,7 @@ const AboutPage = () => {
 
         {/* responsive grid of cards */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {STEPS.map((s, ) => (
+          {STEPS.map((s) => (
             <div
               key={s.id}
               className="bg-base-100 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow hover:-translate-y-1 duration-300 "
