@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Outlet } from "react-router";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
@@ -10,43 +10,75 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const Root = () => {
   const [scrollPercent, setScrollPercent] = useState(0);
+  const smootherRef = useRef(null);
 
   useEffect(() => {
-    if (ScrollSmoother.get()) ScrollSmoother.get().kill();
+    // Kill any existing smoother to avoid duplicates
+    try {
+      if (ScrollSmoother.get()) ScrollSmoother.get().kill();
+    } catch {
+      // ignore
+    }
 
     const smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
-      smooth: 2,
+      smooth: 1.2, // slightly lower value for snappier feel and less input lag
       effects: true,
     });
+    smootherRef.current = smoother;
 
-    // 🎯 Cursor follow
+    // 🎯 Optimized cursor follow using GSAP quickSetter (avoids many tweens stacking)
     const cursor = document.getElementById("cursor");
+    let setX, setY;
     const moveCursor = (e) => {
-      gsap.to(cursor, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.15,
-        ease: "power2.out",
-      });
+      // fallback if quickSetter not available
+      if (setX && setY) {
+        setX(e.clientX);
+        setY(e.clientY);
+      } else if (cursor) {
+        // minimal set via transform for performance
+        cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+      }
     };
-    window.addEventListener("mousemove", moveCursor);
 
-    // 📈 Scroll progress tracker
+    if (cursor && gsap.quickSetter) {
+      // set initial CSS for cursor to avoid layout thrashing
+      cursor.style.position = "fixed";
+      cursor.style.top = "0";
+      cursor.style.left = "0";
+      cursor.style.pointerEvents = "none";
+      cursor.style.willChange = "transform";
+      setX = gsap.quickSetter(cursor, "x", "px");
+      setY = gsap.quickSetter(cursor, "y", "px");
+    }
+
+    // 📈 Throttled scroll progress tracker using requestAnimationFrame and passive listener
+    let ticking = false;
     const updateProgress = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrolled = (scrollTop / docHeight) * 100;
-      setScrollPercent(scrolled);
-      document.documentElement.style.setProperty("--scroll-progress", scrolled);
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          const scrollTop = window.scrollY || window.pageYOffset;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+          setScrollPercent(scrolled);
+          document.documentElement.style.setProperty("--scroll-progress", scrolled);
+          ticking = false;
+        });
+      }
     };
 
-    window.addEventListener("scroll", updateProgress);
+    window.addEventListener("mousemove", moveCursor);
+    window.addEventListener("scroll", updateProgress, { passive: true });
     updateProgress();
 
     return () => {
-      smoother.kill();
+      try {
+        smootherRef.current?.kill?.();
+      } catch {
+        // ignore
+      }
       window.removeEventListener("mousemove", moveCursor);
       window.removeEventListener("scroll", updateProgress);
     };

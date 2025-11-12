@@ -3,7 +3,7 @@ import useAxiosSecure from "../../hook/useAxiosSecure";
 import useAuth from "../../hook/useAuth";
 import { FaDownload, FaRegCalendarAlt } from "react-icons/fa";
 import jsPDF from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Typewriter } from "react-simple-typewriter";
@@ -12,11 +12,6 @@ const MyContribution = () => {
   const [contributions, setContributions] = useState([]);
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
-
-  // Initialize AOS animation
-  useEffect(() => {
-    AOS.init({ duration: 800, offset: 80 });
-  }, []);
 
   // Fetch logged-in user's contributions
   useEffect(() => {
@@ -33,16 +28,32 @@ const MyContribution = () => {
     doc.setFontSize(18);
     doc.text("Cleanup Contribution Report", 14, 20);
 
-    doc.setFontSize(12);
-    doc.text(`Issue Title: ${item.issueTitle}`, 14, 35);
-    doc.text(`Category: ${item.category}`, 14, 45);
-    doc.text(`Description: ${item.description || "N/A"}`, 14, 55);
-    doc.text(`Amount Paid: ৳${item.amount}`, 14, 65);
-    doc.text(`Date: ${new Date(item.date).toLocaleDateString()}`, 14, 75);
-    doc.text(`Status: ${item.status || "Completed"}`, 14, 85);
+    // Build key/value rows for a clean layout
+    const rows = [
+      ["Issue Title", item.issueTitle || "N/A"],
+      ["Category", item.category || "N/A"],
+      ["Amount Paid", `৳${item.amount ?? "0"}`],
+      ["Date", item.date ? new Date(item.date).toLocaleString() : "N/A"],
+      ["Status", item.status || "N/A"],
+      ["Reporter Email", item.reporterEmail || user?.email || "N/A"],
+      ["Description", item.description || "N/A"],
+    ];
 
-    doc.save(`${item.issueTitle}-report.pdf`);
+    // Use autotable for neat formatting
+    autoTable(doc, {
+      startY: 32,
+      head: [["Field", "Value"]],
+      body: rows,
+      styles: { fontSize: 11 },
+      headStyles: { fillColor: [34, 197, 94], textColor: 255 },
+      columnStyles: { 0: { cellWidth: 100 }, 1: { cellWidth: 330 } },
+    });
+
+    const safeTitle = (item.issueTitle || "contribution").replace(/[^a-z0-9_-]/gi, "_");
+    doc.save(`${safeTitle}-report.pdf`);
   };
+
+    // (Download All removed) no handler present
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-8">
@@ -80,6 +91,7 @@ const MyContribution = () => {
           data-aos="fade-up"
           className="overflow-x-auto shadow-lg rounded-xl"
         >
+          {/* Download All removed per user request */}
           <table className="table w-full text-sm">
             <thead className="bg-primary text-white">
               <tr>
@@ -108,9 +120,11 @@ const MyContribution = () => {
                   <td className="text-primary font-semibold hidden sm:table-cell">
                     ৳{item.amount}
                   </td>
-                  <td className="flex items-center gap-2 hidden sm:table-cell">
-                    <FaRegCalendarAlt className="text-primary" />
-                    {new Date(item.date).toLocaleDateString()}
+                  <td className="hidden sm:table-cell">
+                    <div className="flex items-center gap-2">
+                      <FaRegCalendarAlt className="text-primary" />
+                      {new Date(item.date).toLocaleDateString()}
+                    </div>
                   </td>
 
                   {/* Always visible */}

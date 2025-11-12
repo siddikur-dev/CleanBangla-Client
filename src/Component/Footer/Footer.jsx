@@ -49,7 +49,7 @@ const Footer = () => {
 
         {/* Legal */}
         <div className="text-center hidden lg:block ">
-          <h3 className="text-lg font-semibold text-secondary mb-3">Legal</h3>
+          <h3 className="text-lg font-semibold text-primary mb-3">Legal</h3>
           <ul className="space-y-2 ">
             <li>
               <Link to="/" className="hover:text-primary">
@@ -71,7 +71,7 @@ const Footer = () => {
 
         {/* Social & Contact */}
         <div className="text-center md:items-end">
-          <h3 className="text-lg font-semibold text-secondary mb-3">Connect</h3>
+          <h3 className="text-lg font-semibold text-primary mb-3">Connect</h3>
           <p className="mb-3">Follow us on social media</p>
           <div className="flex justify-center gap-3">
             <Link

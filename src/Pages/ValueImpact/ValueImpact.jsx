@@ -18,7 +18,10 @@ const ValueImpact = () => {
       {/* ❤️ Our Core Values */}
       <section className="text-center mb-24">
         <Zoom triggerOnce>
-          <SectionHeader title={"Our Core Values"} titleProps={{ className: "text-primary mb-10" }} />
+          <SectionHeader
+            title={"Our Core Values"}
+            titleProps={{ className: "text-primary mb-10" }}
+          />
         </Zoom>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto px-6">
@@ -58,21 +61,16 @@ const ValueImpact = () => {
       {/* 🌱 Our Impact Section */}
       <section className="relative text-center max-w-6xl mx-auto px-6">
         <Fade direction="up" triggerOnce>
-          <SectionHeader
-            title={
-              <>
-                Our <span className="text-primary">Impact</span>
-              </>
-            }
-            description={
-              "Together, we’re creating a cleaner, greener, and more responsible Bangladesh — one action at a time."
-            }
-            titleProps={{ className: "font-extrabold mb-10" }}
-            descProps={{ className: "mb-14" }}
-          />
+          <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold leading-tight text-center mt-4">
+            Our <span className="text-primary">Impact</span>
+          </h2>
+          <p className="text-base md:text-lg text-base-content/70 max-w-2xl mx-auto pt-3 pb-6 text-center ">
+            "Together, we’re creating a cleaner, greener, and more responsible
+            Bangladesh — one action at a time."
+          </p>
         </Fade>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10">
           {[
             {
               icon: <FaBroom className="text-primary text-4xl" />,
