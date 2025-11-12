@@ -9,12 +9,11 @@ import JoinCleanDrive from "../JoinCleanDrive/JoinCleanDrive";
 const Home = () => {
   return (
     <div>
-      <Slider></Slider>
-      <RecentComplaints></RecentComplaints>
-      <CommunityStats></CommunityStats>
-      <JoinCleanDrive></JoinCleanDrive>
-      <Review></Review>
-      {/* Faq */}
+      <Slider />
+      <RecentComplaints />
+      <CommunityStats />
+      <JoinCleanDrive />
+      <Review />
       <Faq />
     </div>
   );

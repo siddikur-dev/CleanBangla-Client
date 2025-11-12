@@ -41,3 +41,38 @@ body {
     --bg-base-100: #161b20;
     --bg-base-200: #171c21;
 }
+
+
+/* Cursor wrapper */
+#cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    /* inner circle size */
+    height: 10px;
+    border-radius: 50%;
+    background-color: wheat;
+    pointer-events: none;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Outer border */
+#cursor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 26px;
+    /* outer circle size */
+    height: 26px;
+    border: 2px solid #2e8b57;
+    /* border-primary */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
