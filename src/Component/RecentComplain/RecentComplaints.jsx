@@ -3,6 +3,8 @@ import { FaTrash, FaBuilding, FaHammer, FaRoad } from "react-icons/fa";
 import useAxiosSecure from "../../hook/useAxiosSecure";
 import RecentComplaintsCards from "./RecentComplaintsCards";
 import { Fade, Zoom } from "react-awesome-reveal";
+import { SECTION_HEADING, SECTION_DESC } from "../Shared/SectionStyles";
+import SectionHeader from "../Shared/SectionHeader";
 
 const RecentComplaints = () => {
   const categories = [
@@ -57,18 +59,21 @@ const RecentComplaints = () => {
           <div className="text-center mt-4">
             {/* Title */}
             <Fade cascade direction="right" triggerOnce>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-base-content">
-                Report Community <span className="text-primary">Issues</span>
-              </h2>
+              <SectionHeader
+                title={
+                  <>
+                    Report Community <span className="text-primary">Issues</span>
+                  </>
+                }
+                description={
+                  "Select a category to view or report issues. Explore different types of community problems easily."
+                }
+                titleProps={{ className: "text-base-content", "data-aos": undefined }}
+                descProps={{ className: "pb-10" }}
+              />
             </Fade>
 
             {/* Description */}
-            <Zoom direction="left" triggerOnce>
-              <p className="md:text-lg text-base-content/70 max-w-2xl mx-auto pt-3 pb-10">
-                Select a category to view or report issues. Explore different
-                types of community problems easily.
-              </p>
-            </Zoom>
           </div>
           {/* Category Cards */}
           <div

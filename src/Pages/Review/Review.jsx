@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
+import SectionHeader from "../../Component/Shared/SectionHeader";
 
 const reviews = [
   {
@@ -51,29 +52,22 @@ const reviews = [
 
 const Review = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-base-200 to-base-100">
+    <section className="py-12 md:py-16 lg:py-20 bg-base-200">
       <div className="container mx-auto px-4 text-center">
         <div className="text-center mb-12">
           {/* Title with AOS animation */}
-          <h2
-            data-aos="fade-down"
-            data-aos-duration="1000"
-            className="text-2xl md:text-3xl lg:text-4xl font-bold mt-4 leading-tight"
-          >
-            What Our <span className="text-primary">Reporters</span> Say
-          </h2>
-
-          {/* Description with AOS animation */}
-          <p
-            data-aos="fade-up"
-            data-aos-duration="1200"
-            data-aos-delay="200"
-            className="text-base-content/70 max-w-2xl mx-auto mt-4"
-          >
-            Hear directly from citizens and community members about the issues
-            they face and the solutions they've reported. Stay informed and see
-            how CleanBangla is making a difference!
-          </p>
+          <SectionHeader
+            title={
+              <>
+                What Our <span className="text-primary">Reporters</span> Say
+              </>
+            }
+            description={
+              "Hear directly from citizens and community members about the issues they face and the solutions they've reported. Stay informed and see how CleanBangla is making a difference!"
+            }
+            titleProps={{ "data-aos": "fade-down", "data-aos-duration": "1000" }}
+            descProps={{ "data-aos": "fade-up", "data-aos-duration": "1200", "data-aos-delay": "200" }}
+          />
         </div>
 
         <Swiper
@@ -97,7 +91,7 @@ const Review = () => {
         >
           {reviews.map((rev) => (
             <SwiperSlide key={rev.id}>
-              <div className="p-6 border-t-4 border-primary/60 text-center group card w-full shadow-lg rounded-lg overflow-visible transform transition-all duration-300 hover:-translate-y-[-1px] hover:shadow-2xl bg-base-300/70 min-h-[370px] flex flex-col justify-between items-center">
+              <div className="p-6 border-t-4 border-primary/60 hover:border-primary text-center group card w-full  rounded-lg  transform transition-all duration-300 hover:-translate-y-[-1px] shadow-xl hover:shadow-2xl bg-base-100  min-h-[370px] flex flex-col justify-between items-center">
                 <FaQuoteLeft className="text-4xl text-secondary mb-3" />
 
                 <p className="text-base-content/80 italic leading-relaxed mb-4 px-2">

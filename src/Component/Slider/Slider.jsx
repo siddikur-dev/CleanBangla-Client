@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useNavigate } from "react-router";
+import SectionHeader from "../Shared/SectionHeader";
 
 export default function HeroSlider() {
   const progressCircle = useRef(null);
@@ -43,13 +44,14 @@ export default function HeroSlider() {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center  px-6">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Report Local Cleanliness Issues
-              </h1>
-              <p className="max-w-xl text-lg">
-                Spot garbage buildup, broken footpaths, or illegal dumping in
-                your area and report instantly.
-              </p>
+              <SectionHeader
+                as="h1"
+                title={"Report Local Cleanliness Issues"}
+                description={
+                  "Spot garbage buildup, broken footpaths, or illegal dumping in your area and report instantly."
+                }
+                descProps={{ className: "max-w-xl" }}
+              />
 
               <button onClick={handleReport} className="btn btn-primary mt-5">
                 Report an issues
@@ -67,13 +69,14 @@ export default function HeroSlider() {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center  px-6 ">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Join Community Cleanup Drives
-              </h1>
-              <p className="max-w-xl text-lg">
-                Take part in organized cleanup programs and make your city a
-                cleaner, healthier place.
-              </p>
+              <SectionHeader
+                as="h1"
+                title={"Join Community Cleanup Drives"}
+                description={
+                  "Take part in organized cleanup programs and make your city a cleaner, healthier place."
+                }
+                descProps={{ className: "max-w-xl" }}
+              />
               <button onClick={handleReport} className="btn btn-primary mt-5">
                 Report an issues
               </button>
@@ -90,13 +93,14 @@ export default function HeroSlider() {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center  px-6">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Act for a Sustainable Future
-              </h1>
-              <p className="max-w-xl text-lg">
-                Encourage recycling, reduce waste, and support eco-friendly
-                community actions.
-              </p>
+              <SectionHeader
+                as="h1"
+                title={"Act for a Sustainable Future"}
+                description={
+                  "Encourage recycling, reduce waste, and support eco-friendly community actions."
+                }
+                descProps={{ className: "max-w-xl" }}
+              />
               <button onClick={handleReport} className="btn btn-primary mt-5">
                 Report an issues
               </button>
@@ -112,13 +116,14 @@ export default function HeroSlider() {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center  px-6">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Promote Recycling & Awareness
-              </h1>
-              <p className="max-w-xl text-lg">
-                Spread awareness about recycling and inspire others to adopt
-                sustainable habits.
-              </p>
+              <SectionHeader
+                as="h1"
+                title={"Promote Recycling & Awareness"}
+                description={
+                  "Spread awareness about recycling and inspire others to adopt sustainable habits."
+                }
+                descProps={{ className: "max-w-xl" }}
+              />
               <button onClick={handleReport} className="btn btn-primary mt-5">
                 Report an issues
               </button>

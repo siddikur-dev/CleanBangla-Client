@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Typewriter } from "react-simple-typewriter";
 import { FaUsers, FaCheckCircle, FaEllipsisH } from "react-icons/fa";
+import SectionHeader from "../../Component/Shared/SectionHeader";
 
 const CommunityStats = () => {
   //   useEffect(() => {
@@ -38,21 +39,18 @@ const CommunityStats = () => {
     <section className="bg-base-200 py-16">
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* --- Section Header --- */}
-        <h2
-          data-aos="fade-down"
-          className=" text-2xl md:text-3xl lg:text-4xl font-bold text-center mt-4  leading-tight"
-        >
-          Together We <span className="text-primary">Make Change</span>
-        </h2>
-
-        <p
-          data-aos="fade-down"
-          data-aos-delay="200"
-          className="text-center text-base text-base-content/70 max-w-2xl mx-auto pt-3 pb-6"
-        >
-          We're proud to serve thousands of users, helping communities report
-          issues and create positive change every day.
-        </p>
+        <SectionHeader
+          title={
+            <>
+              Together We <span className="text-primary">Make Change</span>
+            </>
+          }
+          description={
+            "We're proud to serve thousands of users, helping communities report issues and create positive change every day."
+          }
+          titleProps={{ "data-aos": "fade-down" }}
+          descProps={{ "data-aos": "fade-down", "data-aos-delay": "200" }}
+        />
 
         {/* --- Stats Cards --- */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
