@@ -1,15 +1,41 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useNavigate } from "react-router";
+import { Typewriter } from "react-simple-typewriter";
 import SectionHeader from "../Shared/SectionHeader";
+
+const progressCircleStyle = `
+  @keyframes slowProgress {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: 125.6;
+    }
+  }
+
+  .progress-circle {
+    animation: slowProgress 3s linear forwards;
+    stroke-dasharray: 125.6;
+  }
+`;
 
 export default function HeroSlider() {
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
+
+  useEffect(() => {
+    // Inject progress circle animation styles
+    const style = document.createElement("style");
+    style.textContent = progressCircleStyle;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
+
   const onAutoplayTimeLeft = (s, time, progress) => {
     progressCircle.current.style.setProperty("--progress", 1 - progress);
     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
@@ -47,7 +73,19 @@ export default function HeroSlider() {
               <div className="max-w-4xl mx-auto">
                 <SectionHeader
                   as="h1"
-                  title={"Report Local Cleanliness Issues"}
+                  title={
+                    <span>
+                      <Typewriter
+                        words={["Report Local Cleanliness Issues", "Report Garbage Problems", "Help Keep Your Area Clean"]}
+                        loop={true}
+                        cursor
+                        cursorStyle="|"
+                        typeSpeed={60}
+                        deleteSpeed={30}
+                        delaySpeed={2000}
+                      />
+                    </span>
+                  }
                   description={
                     "Spot garbage buildup, broken footpaths, or illegal dumping in your area and report instantly."
                   }
@@ -77,7 +115,19 @@ export default function HeroSlider() {
               <div className="max-w-4xl mx-auto">
                 <SectionHeader
                   as="h1"
-                  title={"Join Community Cleanup Drives"}
+                  title={
+                    <span>
+                      <Typewriter
+                        words={["Join Community Cleanup Drives", "Volunteer for Cleanliness", "Make Your City Cleaner"]}
+                        loop={true}
+                        cursor
+                        cursorStyle="|"
+                        typeSpeed={60}
+                        deleteSpeed={30}
+                        delaySpeed={2000}
+                      />
+                    </span>
+                  }
                   description={
                     "Take part in organized cleanup programs and make your city a cleaner, healthier place."
                   }
@@ -106,7 +156,19 @@ export default function HeroSlider() {
               <div className="max-w-4xl mx-auto">
                 <SectionHeader
                   as="h1"
-                  title={"Act for a Sustainable Future"}
+                  title={
+                    <span>
+                      <Typewriter
+                        words={["Act for a Sustainable Future", "Reduce Waste Today", "Build Green Communities"]}
+                        loop={true}
+                        cursor
+                        cursorStyle="|"
+                        typeSpeed={60}
+                        deleteSpeed={30}
+                        delaySpeed={2000}
+                      />
+                    </span>
+                  }
                   description={
                     "Encourage recycling, reduce waste, and support eco-friendly community actions."
                   }
@@ -134,7 +196,19 @@ export default function HeroSlider() {
               <div className="max-w-4xl mx-auto">
                 <SectionHeader
                   as="h1"
-                  title={"Promote Recycling & Awareness"}
+                  title={
+                    <span>
+                      <Typewriter
+                        words={["Promote Recycling & Awareness", "Inspire Sustainable Habits", "Spread Environmental Awareness"]}
+                        loop={true}
+                        cursor
+                        cursorStyle="|"
+                        typeSpeed={60}
+                        deleteSpeed={30}
+                        delaySpeed={2000}
+                      />
+                    </span>
+                  }
                   description={
                     "Spread awareness about recycling and inspire others to adopt sustainable habits."
                   }
@@ -157,7 +231,7 @@ export default function HeroSlider() {
           slot="container-end"
         >
           <svg viewBox="0 0 48 48" ref={progressCircle} className="w-8 h-8">
-            <circle cx="24" cy="24" r="20"></circle>
+            <circle cx="24" cy="24" r="20" className="progress-circle" stroke="currentColor" strokeWidth="2" fill="none"></circle>
           </svg>
           <span ref={progressContent} className="text-sm font-medium"></span>
         </div>
