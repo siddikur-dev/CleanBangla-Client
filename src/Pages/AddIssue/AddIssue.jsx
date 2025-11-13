@@ -68,7 +68,7 @@ const AddIssue = () => {
         className="max-w-3xl mx-auto my-10 bg-base-100 rounded-2xl shadow-md border border-base-200"
       >
         <div className="p-8">
-          {/* 🧠 Title with Typewriter */}
+          {/*  Title with Typewriter */}
           <h1
             data-aos="zoom-in"
             className="text-3xl font-bold text-center  mb-3"

@@ -48,7 +48,6 @@ const RecentComplaints = () => {
 
   useEffect(() => {
     axiosSecure.get("/recent-issues").then((data) => {
-      console.log(data);
       setRecentIssues(data.data);
     });
   }, [axiosSecure]);
