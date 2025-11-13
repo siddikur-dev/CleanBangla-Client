@@ -5,6 +5,7 @@ import RecentComplaintsCards from "./RecentComplaintsCards";
 import { Fade, Zoom } from "react-awesome-reveal";
 import { SECTION_HEADING, SECTION_DESC } from "../Shared/SectionStyles";
 import SectionHeader from "../Shared/SectionHeader";
+import { Typewriter } from "react-simple-typewriter";
 
 const RecentComplaints = () => {
   const categories = [
@@ -54,21 +55,34 @@ const RecentComplaints = () => {
   return (
     <div className="bg-base-200 transition-colors duration-300">
       <div className="container mx-auto">
-        <section className="py-12 md:py-16 lg:py-20 px-6 lg:px-10">
+        <section className="py-12 md:py-16 lg:pb-20 px-6 lg:px-10">
           {/* Title */}{" "}
           <div className="text-center mt-4">
             {/* Title */}
             <Fade cascade direction="right" triggerOnce>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mt-4 leading-tight">
+                Report Community{" "}
+                <span className="text-primary">
+                  <Typewriter
+                    words={["Issues", "Concerns", "Problems", "Suggestions"]}
+                    loop={true}
+                    cursor
+                    cursorStyle="_"
+                    typeSpeed={100}
+                    deleteSpeed={60}
+                    delaySpeed={1300}
+                  />
+                </span>
+              </h2>
+
               <SectionHeader
-                title={
-                  <>
-                    Report Community <span className="text-primary">Issues</span>
-                  </>
-                }
                 description={
                   "Select a category to view or report issues. Explore different types of community problems easily."
                 }
-                titleProps={{ className: "text-base-content", "data-aos": undefined }}
+                titleProps={{
+                  className: "text-base-content",
+                  "data-aos": undefined,
+                }}
                 descProps={{ className: "pb-10" }}
               />
             </Fade>
@@ -110,10 +124,22 @@ const RecentComplaints = () => {
         {/* Recent Complaints Section */}
         <section className=" px-6 lg:px-10">
           <div data-aos="fade-up-left">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mt-4  leading-tight">
-              Our Recent <span className="text-primary">Complaints</span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mt-4 leading-tight">
+              Our Recent{" "}
+              <span className="text-primary">
+                <Typewriter
+                  words={["Complaints", "Feedback", "Suggestions"]}
+                  loop={true}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={100}
+                  deleteSpeed={60}
+                  delaySpeed={1300}
+                />
+              </span>
             </h2>
           </div>
+
           <div data-aos="fade-up-right">
             <p className="text-center  md:text-lg text-base-content/70 max-w-2xl mx-auto pt-3 pb-6">
               Explore the latest issues reported by the community. Stay informed

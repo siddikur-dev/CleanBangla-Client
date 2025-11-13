@@ -19,7 +19,7 @@ export default function HeroSlider() {
     navigate("/add-issue");
   };
   return (
-    <div className="w-full h-[90vh] text-[#c8e5d5]">
+    <div className="w-full h-[70vh] sm:h-[75vh] md:h-[85vh] lg:h-[90vh] text-[#c8e5d5]">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -41,21 +41,26 @@ export default function HeroSlider() {
             <img
               src="https://i.ibb.co.com/yBsr1F4M/image.webp"
               alt="Garbage Issue"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center  px-6">
-              <SectionHeader
-                as="h1"
-                title={"Report Local Cleanliness Issues"}
-                description={
-                  "Spot garbage buildup, broken footpaths, or illegal dumping in your area and report instantly."
-                }
-                descProps={{ className: "max-w-xl" }}
-              />
+            <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center px-6 sm:px-8 md:px-12">
+              <div className="max-w-4xl mx-auto">
+                <SectionHeader
+                  as="h1"
+                  title={"Report Local Cleanliness Issues"}
+                  description={
+                    "Spot garbage buildup, broken footpaths, or illegal dumping in your area and report instantly."
+                  }
+                  titleProps={{ className: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold" }}
+                  descProps={{ className: "max-w-xl text-sm sm:text-base md:text-lg mx-auto text-white/90 mt-3" }}
+                />
 
-              <button onClick={handleReport} className="btn btn-primary mt-5">
-                Report an issues
-              </button>
+                <div className="mt-6 flex justify-center">
+                  <button onClick={handleReport} className="btn btn-primary px-6 py-3 text-sm sm:text-base">
+                    Report an issue
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </SwiperSlide>
@@ -68,18 +73,23 @@ export default function HeroSlider() {
               alt="Community Cleaning"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center  px-6 ">
-              <SectionHeader
-                as="h1"
-                title={"Join Community Cleanup Drives"}
-                description={
-                  "Take part in organized cleanup programs and make your city a cleaner, healthier place."
-                }
-                descProps={{ className: "max-w-xl" }}
-              />
-              <button onClick={handleReport} className="btn btn-primary mt-5">
-                Report an issues
-              </button>
+            <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center px-6 sm:px-8 md:px-12">
+              <div className="max-w-4xl mx-auto">
+                <SectionHeader
+                  as="h1"
+                  title={"Join Community Cleanup Drives"}
+                  description={
+                    "Take part in organized cleanup programs and make your city a cleaner, healthier place."
+                  }
+                  titleProps={{ className: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold" }}
+                  descProps={{ className: "max-w-xl text-sm sm:text-base md:text-lg mx-auto text-white/90 mt-3" }}
+                />
+                <div className="mt-6 flex justify-center">
+                  <button onClick={handleReport} className="btn btn-primary px-6 py-3 text-sm sm:text-base">
+                    Report an issue
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </SwiperSlide>
@@ -92,18 +102,23 @@ export default function HeroSlider() {
               alt="Sustainability Action"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center  px-6">
-              <SectionHeader
-                as="h1"
-                title={"Act for a Sustainable Future"}
-                description={
-                  "Encourage recycling, reduce waste, and support eco-friendly community actions."
-                }
-                descProps={{ className: "max-w-xl" }}
-              />
-              <button onClick={handleReport} className="btn btn-primary mt-5">
-                Report an issues
-              </button>
+            <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center px-6 sm:px-8 md:px-12">
+              <div className="max-w-4xl mx-auto">
+                <SectionHeader
+                  as="h1"
+                  title={"Act for a Sustainable Future"}
+                  description={
+                    "Encourage recycling, reduce waste, and support eco-friendly community actions."
+                  }
+                  titleProps={{ className: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold" }}
+                  descProps={{ className: "max-w-xl text-sm sm:text-base md:text-lg mx-auto text-white/90 mt-3" }}
+                />
+                <div className="mt-6 flex justify-center">
+                  <button onClick={handleReport} className="btn btn-primary px-6 py-3 text-sm sm:text-base">
+                    Report an issue
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </SwiperSlide>
@@ -115,18 +130,23 @@ export default function HeroSlider() {
               alt="Recycling Awareness"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center  px-6">
-              <SectionHeader
-                as="h1"
-                title={"Promote Recycling & Awareness"}
-                description={
-                  "Spread awareness about recycling and inspire others to adopt sustainable habits."
-                }
-                descProps={{ className: "max-w-xl" }}
-              />
-              <button onClick={handleReport} className="btn btn-primary mt-5">
-                Report an issues
-              </button>
+            <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center px-6 sm:px-8 md:px-12">
+              <div className="max-w-4xl mx-auto">
+                <SectionHeader
+                  as="h1"
+                  title={"Promote Recycling & Awareness"}
+                  description={
+                    "Spread awareness about recycling and inspire others to adopt sustainable habits."
+                  }
+                  titleProps={{ className: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold" }}
+                  descProps={{ className: "max-w-xl text-sm sm:text-base md:text-lg mx-auto text-white/90 mt-3" }}
+                />
+                <div className="mt-6 flex justify-center">
+                  <button onClick={handleReport} className="btn btn-primary px-6 py-3 text-sm sm:text-base">
+                    Report an issue
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </SwiperSlide>

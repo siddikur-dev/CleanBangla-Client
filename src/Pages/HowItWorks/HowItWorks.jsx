@@ -6,7 +6,7 @@ import { Typewriter } from "react-simple-typewriter";
 const HowItWorks = () => {
   return (
     <section className=" bg-base-200  text-base-content">
-      <div className="px-4 container py-12 md:py-16 lg:py-20 mx-auto  text-center">
+      <div className="px-4 container py-12 md:py-16 lg:pb-20 mx-auto  text-center">
         {/* Section Title */}
         <Fade direction="up" triggerOnce>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mt-4  leading-tight

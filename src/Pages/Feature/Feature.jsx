@@ -20,7 +20,7 @@ const Feature = () => {
       {/* Helmet */}
       <title>Features - CleanBangla</title>
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-10 container mx-auto">
+      <section className="pb-20 px-4 sm:px-6 lg:px-10 container mx-auto">
         <div className="text-center mb-8">
           <SectionHeader
             title={

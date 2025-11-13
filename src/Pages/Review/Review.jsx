@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
 import SectionHeader from "../../Component/Shared/SectionHeader";
+import { Typewriter } from "react-simple-typewriter";
 
 const reviews = [
   {
@@ -52,29 +53,31 @@ const reviews = [
 
 const Review = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-base-200">
+    <section className="py-12 md:py-16 lg:pb-20 bg-base-200">
       <div className="container mx-auto px-4 text-center">
-        <div className="text-center mb-12">
-          {/* Title with AOS animation */}
-          <SectionHeader
-            title={
-              <>
-                What Our <span className="text-primary">Reporters</span> Say
-              </>
-            }
-            description={
-              "Hear directly from citizens and community members about the issues they face and the solutions they've reported. Stay informed and see how CleanBangla is making a difference!"
-            }
-            titleProps={{
-              "data-aos": "fade-down",
-              "data-aos-duration": "1000",
-            }}
-            descProps={{
-              "data-aos": "fade-up",
-              "data-aos-duration": "1200",
-              "data-aos-delay": "200",
-            }}
-          />
+        <div className="text-3xl md:text-4xl lg:text-4xl  leading-tight text-center mt-4">
+          <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold  mt-4">
+            What Our
+            <span className="text-primary">
+              <Typewriter
+                words={[
+                  " Reporters Say",
+                  " Citizens Say",
+                  " Community Members Say",
+                ]}
+                loop={true}
+                cursor
+                cursorStyle="_"
+                typeSpeed={100}
+                deleteSpeed={60}
+                delaySpeed={1300}
+              />
+            </span>
+          </h2>
+          <p className="text-base md:text-lg text-base-content/70 max-w-2xl mx-auto pt-3 pb-6 text-center">
+            Together, we’re creating a cleaner, greener, and more responsible
+            Bangladesh — one action at a time.
+          </p>
         </div>
 
         <Swiper

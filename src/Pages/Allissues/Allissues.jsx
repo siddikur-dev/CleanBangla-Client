@@ -33,7 +33,7 @@ const Allissues = () => {
     );
 
   return (
-    <div className=" py-10 md:py-16 lg:py-20 bg-base-200  ">
+    <div className=" py-10 md:py-16 lg:pb-20 bg-base-200  ">
       <title>All Issues - CleanBangla</title>
       <div className="container mx-auto ">
         {/* --- Section Title --- */}

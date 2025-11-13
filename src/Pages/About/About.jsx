@@ -180,7 +180,7 @@ const AboutPage = () => {
          ========================= */}
       <section
         aria-label="How it works"
-        className="py-20 px-6 md:px-12 lg:px-24"
+        className="pb-20 px-6 md:px-12 lg:px-24"
       >
         <div className="max-w-6xl mx-auto text-center mb-12">
           <SectionHeader
@@ -253,7 +253,7 @@ const AboutPage = () => {
          ========================= */}
       <section
         aria-label="Our story"
-        className="bg-base-200 py-20 px-6 md:px-12"
+        className="bg-base-200 pb-20 px-6 md:px-12"
         data-aos="fade-up"
       >
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -308,7 +308,7 @@ const AboutPage = () => {
          ========================= */}
       <section
         aria-label="Mission and core values"
-        className="bg-base-200 py-20 px-6 md:px-12"
+        className="bg-base-200 pb-20 px-6 md:px-12"
       >
         <div className="max-w-6xl mx-auto grid  md:grid-cols-2 gap-12 items-center">
           {/* Mission image */}
@@ -359,7 +359,7 @@ const AboutPage = () => {
       {/* =========================
          TEAM
          ========================= */}
-      <section className="py-20 px-6 md:px-12 bg-base-200">
+      <section className="pb-20 px-6 md:px-12 bg-base-200">
         <div className="max-w-6xl mx-auto text-center mb-10">
           <SectionHeader
             title={<Typewriter words={["Meet Our Team"]} loop={false} cursor />}
