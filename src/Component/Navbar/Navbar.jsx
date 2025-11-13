@@ -59,7 +59,7 @@ const Navbar = () => {
           {/* </span> */}
           <img
             className="w-8 border rounded-full bg-primary"
-            src="/logo.png"
+            src="/Logo.png"
             alt="logo"
           />
         </NavLink>

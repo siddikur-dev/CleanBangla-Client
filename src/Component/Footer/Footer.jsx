@@ -13,7 +13,7 @@ const Footer = () => {
             Clean <span className="text-primary">Bangla</span>
             <img
               className="bg-primary rounded-full w-8"
-              src="/logo.png"
+              src="/Logo.png"
               alt=""
             />
           </h2>

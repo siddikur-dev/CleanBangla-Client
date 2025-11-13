@@ -36,7 +36,7 @@ const MyContribution = () => {
       ["Date", item.date ? new Date(item.date).toLocaleString() : "N/A"],
       ["Status", item.status || "N/A"],
       ["Reporter Email", item.reporterEmail || user?.email || "N/A"],
-      ["Description", item.description || "N/A"],
+      ["Description", item.additional || "N/A"],
     ];
 
     // Use autotable for neat formatting
@@ -49,11 +49,14 @@ const MyContribution = () => {
       columnStyles: { 0: { cellWidth: 100 }, 1: { cellWidth: 330 } },
     });
 
-    const safeTitle = (item.issueTitle || "contribution").replace(/[^a-z0-9_-]/gi, "_");
+    const safeTitle = (item.issueTitle || "contribution").replace(
+      /[^a-z0-9_-]/gi,
+      "_"
+    );
     doc.save(`${safeTitle}-report.pdf`);
   };
 
-    // (Download All removed) no handler present
+  // (Download All removed) no handler present
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-8">
