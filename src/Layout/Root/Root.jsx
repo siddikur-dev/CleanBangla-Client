@@ -29,8 +29,10 @@ const Root = () => {
     smootherRef.current = smoother;
 
     // 🎯 Optimized cursor follow using GSAP quickSetter (avoids many tweens stacking)
+    // Only enable custom cursor on large screens to avoid mobile overhead
     const cursor = document.getElementById("cursor");
     let setX, setY;
+    let mouseListenerAdded = false;
     const moveCursor = (e) => {
       // fallback if quickSetter not available
       if (setX && setY) {
@@ -42,7 +44,8 @@ const Root = () => {
       }
     };
 
-    if (cursor && gsap.quickSetter) {
+    const isLargeScreen = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(min-width: 1024px)").matches;
+    if (isLargeScreen && cursor && gsap.quickSetter) {
       // set initial CSS for cursor to avoid layout thrashing
       cursor.style.position = "fixed";
       cursor.style.top = "0";
@@ -51,6 +54,9 @@ const Root = () => {
       cursor.style.willChange = "transform";
       setX = gsap.quickSetter(cursor, "x", "px");
       setY = gsap.quickSetter(cursor, "y", "px");
+
+      window.addEventListener("mousemove", moveCursor);
+      mouseListenerAdded = true;
     }
 
     // 📈 Throttled scroll progress tracker using requestAnimationFrame and passive listener
@@ -69,7 +75,9 @@ const Root = () => {
       }
     };
 
-    window.addEventListener("mousemove", moveCursor);
+    if (!mouseListenerAdded) {
+      // if not added above (small screens), don't attach a no-op listener
+    }
     window.addEventListener("scroll", updateProgress, { passive: true });
     updateProgress();
 
@@ -79,15 +87,15 @@ const Root = () => {
       } catch {
         // ignore
       }
-      window.removeEventListener("mousemove", moveCursor);
+      if (mouseListenerAdded) window.removeEventListener("mousemove", moveCursor);
       window.removeEventListener("scroll", updateProgress);
     };
   }, []);
 
   return (
     <>
-      {/* Custom Cursor */}
-      <div id="cursor">
+      {/* Custom Cursor (hidden on small screens; shown only on lg+) */}
+      <div id="cursor" className="hidden lg:block">
         <svg viewBox="0 0 36 36" className="progress-ring">
           <path
             className="progress-ring__circle"

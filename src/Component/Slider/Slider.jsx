@@ -227,7 +227,7 @@ export default function HeroSlider() {
 
         {/* Progress Circle */}
         <div
-          className="autoplay-progress absolute bottom-10 right-10 z-10 flex items-center space-x-2 text-white"
+          className="autoplay-progress absolute bottom-10 right-10 z-10 hidden lg:flex items-center space-x-2 text-white"
           slot="container-end"
         >
           <svg viewBox="0 0 48 48" ref={progressCircle} className="w-8 h-8">

@@ -41,12 +41,12 @@ const JoinCleanDrive = () => {
 
           {/* Button */}
           <Link
-            to="/volunteer"
+            to="/about"
             data-aos="zoom-in"
             data-aos-delay="200"
             className="inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold shadow-md transition-all duration-500 ease-in-out hover:bg-primary/90 hover:scale-105 hover:shadow-lg"
           >
-            Become a Volunteer →
+            Learn More →
           </Link>
         </div>
       </div>
