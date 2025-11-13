@@ -31,7 +31,7 @@ const ResetPass = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-base-200 py-12 px-4">
-      <title>Forget Password - Toy Universe</title>
+      <title>Forget Password - CleanBangla</title>
 
       <div className="bg-base-100 shadow-xl rounded-xl w-full max-w-md p-8 text-center">
         {/* Icon */}

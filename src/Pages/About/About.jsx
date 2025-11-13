@@ -105,6 +105,7 @@ const AboutPage = () => {
 
   return (
     <div className="bg-base-200 text-base-content">
+      <title>About - CleanBangla</title>
       {/* =========================
          HERO / ABOUT US SECTION
          ========================= */}

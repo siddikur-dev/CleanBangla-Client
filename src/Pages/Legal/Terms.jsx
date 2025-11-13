@@ -4,12 +4,17 @@ import SectionHeader from "../../Component/Shared/SectionHeader";
 const Terms = () => {
   return (
     <div className="bg-base-200 min-h-screen py-16">
+      <title>Terms - CleanBangla</title>
       <div className="container mx-auto px-4">
         <SectionHeader
           title={"Terms & Conditions"}
-          description={"Please read these terms and conditions carefully before using the CleanBangla platform."}
+          description={
+            "Please read these terms and conditions carefully before using the CleanBangla platform."
+          }
           titleProps={{ className: "heading-font text-primary" }}
-          descProps={{ className: "text-base-content/70 max-w-3xl mx-auto mb-8" }}
+          descProps={{
+            className: "text-base-content/70 max-w-3xl mx-auto mb-8",
+          }}
         />
 
         <article className="bg-base-100 p-8 rounded-2xl shadow-md max-w-4xl mx-auto">
@@ -23,16 +28,25 @@ const Terms = () => {
           </section>
 
           <section className="mb-6">
-            <h3 className="text-xl font-semibold mb-2">User responsibilities</h3>
+            <h3 className="text-xl font-semibold mb-2">
+              User responsibilities
+            </h3>
             <ul className="list-disc list-inside text-base-content/70 leading-relaxed">
               <li>Provide accurate information when reporting issues.</li>
-              <li>Respect privacy and do not post content that violates others' rights.</li>
-              <li>Do not use the platform for illegal or malicious activities.</li>
+              <li>
+                Respect privacy and do not post content that violates others'
+                rights.
+              </li>
+              <li>
+                Do not use the platform for illegal or malicious activities.
+              </li>
             </ul>
           </section>
 
           <section className="mb-6">
-            <h3 className="text-xl font-semibold mb-2">Content and moderation</h3>
+            <h3 className="text-xl font-semibold mb-2">
+              Content and moderation
+            </h3>
             <p className="text-base-content/70 leading-relaxed">
               CleanBangla may review, moderate, and remove content that violates
               the terms or community guidelines. We do not guarantee action on
@@ -41,7 +55,9 @@ const Terms = () => {
           </section>
 
           <section className="mb-6">
-            <h3 className="text-xl font-semibold mb-2">Limitation of liability</h3>
+            <h3 className="text-xl font-semibold mb-2">
+              Limitation of liability
+            </h3>
             <p className="text-base-content/70 leading-relaxed">
               To the extent permitted by law, CleanBangla is not liable for any
               indirect or consequential damages arising from use of the
@@ -53,7 +69,13 @@ const Terms = () => {
             <h3 className="text-xl font-semibold mb-2">Contact</h3>
             <p className="text-base-content/70 leading-relaxed">
               If you have questions about these Terms, contact us at
-              <a className="text-primary font-semibold ml-1" href="mailto:contact@cleanbangla.org">contact@cleanbangla.org</a>.
+              <a
+                className="text-primary font-semibold ml-1"
+                href="mailto:contact@cleanbangla.org"
+              >
+                contact@cleanbangla.org
+              </a>
+              .
             </p>
           </section>
         </article>

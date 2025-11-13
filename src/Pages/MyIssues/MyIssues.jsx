@@ -95,9 +95,10 @@ const MyIssues = () => {
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-8">
+      <title>My Issues - CleanBangla</title>
       {/* Typewriter Heading */}
-      <div data-aos="zoom-in-up" className="text-center">
-        <h2 className="text-3xl font-bold">
+      <div data-aos="zoom-in-up" className="text-center mb-6">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-3">
           My{" "}
           <span className="text-primary">
             <Typewriter
@@ -111,6 +112,17 @@ const MyIssues = () => {
             />
           </span>
         </h2>
+
+        {/* 🔹 Short Description */}
+        <p
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="text-center text-base-content/70 max-w-2xl mx-auto pt-3 pb-8 text-sm sm:text-base"
+        >
+          Explore all your submitted issues and reports in one place. Track
+          progress, view contributions, and stay updated on community clean-up
+          efforts.
+        </p>
       </div>
 
       {/* No issues found */}
@@ -179,13 +191,13 @@ const MyIssues = () => {
                         setSelectedIssue(issue);
                         setIsUpdateModalOpen(true);
                       }}
-                      className="text-blue-500 hover:text-blue-700"
+                      className="text-blue-500 hover:text-blue-700 cursor-pointer"
                     >
                       <FaEdit size={18} />
                     </button>
                     <button
                       onClick={() => handleDelete(issue)}
-                      className="text-red-500 hover:text-red-700"
+                      className="text-red-500 hover:text-red-700 cursor-pointer"
                     >
                       <FaTrashAlt size={18} />
                     </button>
@@ -211,46 +223,95 @@ const MyIssues = () => {
               Update Issue
             </h3>
             <form onSubmit={handleUpdateSubmit} className="space-y-3">
-              <input
-                type="text"
-                name="title"
-                defaultValue={selectedIssue?.title}
-                placeholder="Title"
-                className="input input-bordered w-full"
-                required
-              />
-              <input
-                type="text"
-                name="category"
-                defaultValue={selectedIssue?.category}
-                placeholder="Category"
-                className="input input-bordered w-full"
-                required
-              />
-              <input
-                type="number"
-                name="amount"
-                defaultValue={selectedIssue?.amount}
-                placeholder="Amount"
-                className="input input-bordered w-full"
-                required
-              />
-              <textarea
-                name="description"
-                defaultValue={selectedIssue?.description}
-                placeholder="Description"
-                className="textarea textarea-bordered w-full"
-                required
-              />
-              <select
-                name="status"
-                defaultValue={selectedIssue?.status}
-                className="select select-bordered w-full"
-                required
-              >
-                <option value="ongoing">Ongoing</option>
-                <option value="ended">Ended</option>
-              </select>
+              <div>
+                <label
+                  htmlFor="update-title"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Issue Title
+                </label>
+                <input
+                  id="update-title"
+                  type="text"
+                  name="title"
+                  defaultValue={selectedIssue?.title}
+                  placeholder="Title"
+                  className="input input-bordered w-full"
+                  required
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="update-category"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Category
+                </label>
+                <input
+                  id="update-category"
+                  type="text"
+                  name="category"
+                  defaultValue={selectedIssue?.category}
+                  placeholder="Category"
+                  className="input input-bordered w-full"
+                  required
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="update-amount"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Suggested Budget (৳)
+                </label>
+                <input
+                  id="update-amount"
+                  type="number"
+                  name="amount"
+                  defaultValue={selectedIssue?.amount}
+                  placeholder="Amount"
+                  className="input input-bordered w-full"
+                  required
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="update-description"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Description
+                </label>
+                <textarea
+                  id="update-description"
+                  name="description"
+                  defaultValue={selectedIssue?.description}
+                  placeholder="Description"
+                  className="textarea textarea-bordered w-full"
+                  required
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="update-status"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Status
+                </label>
+                <select
+                  id="update-status"
+                  name="status"
+                  defaultValue={selectedIssue?.status}
+                  className="select select-bordered w-full"
+                  required
+                >
+                  <option value="ongoing">Ongoing</option>
+                  <option value="ended">Ended</option>
+                </select>
+              </div>
 
               <button type="submit" className="btn btn-primary w-full mt-2">
                 Save Changes

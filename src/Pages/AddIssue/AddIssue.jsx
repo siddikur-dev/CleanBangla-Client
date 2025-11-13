@@ -71,7 +71,7 @@ const AddIssue = () => {
           {/*  Title with Typewriter */}
           <h1
             data-aos="zoom-in"
-            className="text-3xl font-bold text-center  mb-3"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center"
           >
             Report
             <span className="text-primary">
@@ -89,7 +89,7 @@ const AddIssue = () => {
           <p
             data-aos="fade-up"
             data-aos-delay="300"
-            className="text-base text-center text-base-content/70 mb-6"
+            className="text-center text-base-content/70 max-w-2xl mx-auto pt-3 pb-8 text-sm sm:text-base"
           >
             Please provide clear details so volunteers and officials can help
             faster.
@@ -125,7 +125,6 @@ const AddIssue = () => {
                   <option>Illegal Construction</option>
                   <option>Broken Public Property</option>
                   <option>Road Damage</option>
-                  <option>Other</option>
                 </select>
               </div>
 

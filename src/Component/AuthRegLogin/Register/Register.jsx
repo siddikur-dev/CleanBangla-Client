@@ -104,7 +104,7 @@ const Register = () => {
   return (
     <section className="min-h-screen flex items-center justify-center bg-base-200 py-12 px-4">
       {/* Helmet */}
-      <title>Register - Toy Universe </title>
+      <title>Register - CleanBangla </title>
       <div className="bg-base-100 shadow-xl rounded-xl w-full max-w-md p-8">
         {/* Heading */}
         <h2 className="text-3xl font-bold text-center text-primary mb-6">

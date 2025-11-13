@@ -4,12 +4,17 @@ import SectionHeader from "../../Component/Shared/SectionHeader";
 const Refund = () => {
   return (
     <div className="bg-base-200 min-h-screen py-16">
+      <title>Refund - CleanBangla</title>
       <div className="container mx-auto px-4">
         <SectionHeader
           title={"Refund & Support Policy"}
-          description={"Information about refunds, dispute resolution, and support for CleanBangla transactions and donations."}
+          description={
+            "Information about refunds, dispute resolution, and support for CleanBangla transactions and donations."
+          }
           titleProps={{ className: "heading-font text-primary" }}
-          descProps={{ className: "text-base-content/70 max-w-3xl mx-auto mb-8" }}
+          descProps={{
+            className: "text-base-content/70 max-w-3xl mx-auto mb-8",
+          }}
         />
 
         <article className="bg-base-100 p-8 rounded-2xl shadow-md max-w-4xl mx-auto">
@@ -34,17 +39,23 @@ const Refund = () => {
           <section className="mb-6">
             <h3 className="text-xl font-semibold mb-2">Dispute resolution</h3>
             <p className="text-base-content/70 leading-relaxed">
-              If you have a dispute, please reach out to support first so we
-              can attempt resolution. External dispute mechanisms may be used
-              if internal resolution is not possible.
+              If you have a dispute, please reach out to support first so we can
+              attempt resolution. External dispute mechanisms may be used if
+              internal resolution is not possible.
             </p>
           </section>
 
           <section>
             <h3 className="text-xl font-semibold mb-2">Contact support</h3>
             <p className="text-base-content/70 leading-relaxed">
-              Email <a className="text-primary font-semibold" href="mailto:support@cleanbangla.org">support@cleanbangla.org</a> with
-              transaction details to start a refund or support request.
+              Email{" "}
+              <a
+                className="text-primary font-semibold"
+                href="mailto:support@cleanbangla.org"
+              >
+                support@cleanbangla.org
+              </a>{" "}
+              with transaction details to start a refund or support request.
             </p>
           </section>
         </article>

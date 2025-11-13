@@ -4,9 +4,10 @@ const ThemeToggle = () => {
   // Detect system preference on first load
   const getInitialTheme = () => {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") return true;
-    if (savedTheme === "light") return false;
-    // If no theme saved, use system preference
+    // If user explicitly saved a theme, honor it.
+    if (savedTheme === "dark") return true; // isDark = true when saved as dark
+    if (savedTheme === "light") return false; // isDark = false when saved as light
+    // No saved preference: default to light (isDark = false), but if system prefers dark, use dark.
     if (
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -37,11 +38,7 @@ const ThemeToggle = () => {
   }, []);
 
   const toggleTheme = () => {
-    setIsDark((prev) => {
-      const newVal = !prev;
-      localStorage.setItem("theme", newVal ? "dark" : "light");
-      return newVal;
-    });
+    setIsDark((prev) => !prev);
   };
 
   return (

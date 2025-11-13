@@ -31,7 +31,7 @@ const Profile = () => {
 
   return (
     <section className="min-h-screen bg-base-200 py-12 px-4 flex justify-center items-center">
-      <title>Profile - Toy Universe</title>
+      <title>Profile - CleanBangla</title>
       <div className="bg-base-100 shadow-xl rounded-2xl w-full max-w-3xl overflow-hidden">
         {/* Top Cover / Banner */}
         <div className="h-40 bg-gradient-to-r from-primary to-secondary bg-[url('https://images.unsplash.com/photo-1687603917313-ccae1a289a9d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmVhY3QlMjBqc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000')] bg-cover bg-center relative">

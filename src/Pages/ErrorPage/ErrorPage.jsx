@@ -5,7 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 const ErrorPage = () => {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center bg-base-200 text-base-content px-4">
-      <title> Not Found - Toy Universe BD</title>
+      <title> Not Found - CleanBangla</title>
       <div className="text-center space-y-6">
         {/* Illustration */}
         <img

@@ -60,24 +60,37 @@ const MyContribution = () => {
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-8">
+      <title>My Contribution - CleanBangla</title>
       {/* Typewriter Heading */}
-      <div data-aos="zoom-in-up">
-        <h2 className="text-3xl font-bold text-center">
-          My
-          <span className="text-primary">
-            <Typewriter
-              className
-              words={[" Contributions", " Cleanup Support", " Payments"]}
-              cursor
-              loop={true}
-              cursorStyle="_"
-              typeSpeed={80}
-              deleteSpeed={50}
-              delaySpeed={1500}
-            />
-          </span>
-        </h2>
-      </div>
+      {/* Typewriter Heading */}
+<div data-aos="zoom-in-up" className="text-center mb-6">
+  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-3">
+    My{" "}
+    <span className="text-primary">
+      <Typewriter
+        words={["Contributions", "Cleanup Support", "Payments"]}
+        cursor
+        loop={true}
+        cursorStyle="_"
+        typeSpeed={80}
+        deleteSpeed={50}
+        delaySpeed={1500}
+      />
+    </span>
+  </h2>
+
+  {/* 🔹 Short Description Below Heading */}
+  <p
+    data-aos="fade-up"
+    data-aos-delay="200"
+    className="text-center text-base-content/70 max-w-2xl mx-auto pt-3 pb-8 text-sm sm:text-base"
+  >
+    Here you can track all your cleanup contributions, payments, and support
+    history. Stay updated with your environmental impact and community support
+    progress.
+  </p>
+</div>
+
 
       {contributions.length === 0 ? (
         <div

@@ -70,7 +70,7 @@ const Login = () => {
   return (
     <section className="min-h-screen flex items-center justify-center bg-base-200 py-12 px-4">
       {/* helmet*/}
-      <title>Login - Toy Universe</title>
+      <title>Login - CleanBangla</title>
       <div className="bg-base-100 shadow-xl rounded-xl w-full max-w-md p-8">
         {/* Heading */}
         <h2 className="text-3xl heading-font md:text-4xl font-bold text-center mb-8 text-primary">
