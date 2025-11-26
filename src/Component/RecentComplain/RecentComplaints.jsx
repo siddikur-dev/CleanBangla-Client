@@ -53,8 +53,9 @@ const RecentComplaints = () => {
   }, [axiosSecure]);
 
   return (
-    <div className="bg-base-200 transition-colors duration-300">
+    <div className="bg-base-200 ">
       <div className="container mx-auto">
+        {/* Report Community --- */}
         <section className="py-12 md:py-16 lg:pb-20 px-6 lg:px-10">
           {/* Title */}{" "}
           <div className="text-center mt-4">
@@ -95,7 +96,7 @@ const RecentComplaints = () => {
             data-aos-easing="ease-out-cubic"
             data-aos-duration="1700"
           >
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto px-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto px-4">
               {categories.map((cat) => (
                 <div
                   key={cat.id}
@@ -148,7 +149,7 @@ const RecentComplaints = () => {
           </div>
 
           {/* Recent issues cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-5 items-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-5 items-center ">
             {recentIssues.map((issue) => (
               <RecentComplaintsCards issue={issue} key={issue._id} />
             ))}

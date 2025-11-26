@@ -13,13 +13,13 @@ const RecentComplaintsCards = ({ issue }) => {
   return (
     <div data-aos="zoom-out">
       <div
-        className="bg-base-100 rounded-2xl  overflow-hidden
-      shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-300"
+        className="bg-base-100 rounded-2xl overflow-hidden
+      shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-300  md:h-52 lg:h-57 gap-5"
       >
         <div className="p-5">
           {/* Status & Time */}
           <div className="flex justify-between items-center mb-3">
-            <p className="text-xs font-medium bg-primary/60 p-2 rounded-full uppercase tracking-wide mb-1">
+            <p className="text-xs font-medium bg-primary/60 p-2 rounded-full uppercase  mb-1">
               {issue.category || "General"}
             </p>
             <p className="text-sm text-base-content/70">{timeAgo}</p>
@@ -44,7 +44,7 @@ const RecentComplaintsCards = ({ issue }) => {
 
             <button
               onClick={() => handleSeeDetails(issue._id)}
-              className="btn-primary btn btn-outline  transition"
+              className="btn-primary btn btn-outline duration-300"
             >
               See Details
             </button>

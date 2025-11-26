@@ -26,10 +26,14 @@ const IssueDetails = () => {
 
   // 🔹 Fetch issue details
   useEffect(() => {
+    if (!id) return;
+    console.debug("IssueDetails: fetching issue id", id);
     axiosSecure
-      .get(`/recent-issues/${id}`)
+      .get(`/all-issues/${id}`)
       .then((res) => setDetail(res.data))
-      .catch(() => console.error("Failed to fetch issue details"));
+      .catch((err) => {
+        console.error("Failed to fetch issue details", err);
+      });
   }, [id, axiosSecure]);
 
   // 🔹 Fetch contributors
