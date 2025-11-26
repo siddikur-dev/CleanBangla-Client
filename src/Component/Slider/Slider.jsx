@@ -5,7 +5,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useNavigate } from "react-router";
-import { Typewriter } from "react-simple-typewriter";
 import SectionHeader from "../Shared/SectionHeader";
 
 const progressCircleStyle = `
@@ -50,7 +49,7 @@ export default function HeroSlider() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 3000,
+          delay: 4000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -73,28 +72,25 @@ export default function HeroSlider() {
               <div className="max-w-4xl mx-auto">
                 <SectionHeader
                   as="h1"
-                  title={
-                    <span>
-                      <Typewriter
-                        words={["Report Local Cleanliness Issues", "Report Garbage Problems", "Help Keep Your Area Clean"]}
-                        loop={true}
-                        cursor
-                        cursorStyle="|"
-                        typeSpeed={60}
-                        deleteSpeed={30}
-                        delaySpeed={2000}
-                      />
-                    </span>
-                  }
+                  title={"Report Local Cleanliness Issues"}
                   description={
                     "Spot garbage buildup, broken footpaths, or illegal dumping in your area and report instantly."
                   }
-                  titleProps={{ className: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold" }}
-                  descProps={{ className: "max-w-xl text-sm sm:text-base md:text-lg mx-auto text-white/90 mt-3" }}
+                  titleProps={{
+                    className:
+                      "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold",
+                  }}
+                  descProps={{
+                    className:
+                      "max-w-xl text-sm sm:text-base md:text-lg mx-auto text-white/90 mt-3",
+                  }}
                 />
 
                 <div className="mt-6 flex justify-center">
-                  <button onClick={handleReport} className="btn btn-primary px-6 py-3 text-sm sm:text-base">
+                  <button
+                    onClick={handleReport}
+                    className="btn btn-primary px-6 py-3 text-sm sm:text-base"
+                  >
                     Report an issue
                   </button>
                 </div>
@@ -115,27 +111,24 @@ export default function HeroSlider() {
               <div className="max-w-4xl mx-auto">
                 <SectionHeader
                   as="h1"
-                  title={
-                    <span>
-                      <Typewriter
-                        words={["Join Community Cleanup Drives", "Volunteer for Cleanliness", "Make Your City Cleaner"]}
-                        loop={true}
-                        cursor
-                        cursorStyle="|"
-                        typeSpeed={60}
-                        deleteSpeed={30}
-                        delaySpeed={2000}
-                      />
-                    </span>
-                  }
+                  title={"Join Community Cleanup Drives"}
                   description={
                     "Take part in organized cleanup programs and make your city a cleaner, healthier place."
                   }
-                  titleProps={{ className: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold" }}
-                  descProps={{ className: "max-w-xl text-sm sm:text-base md:text-lg mx-auto text-white/90 mt-3" }}
+                  titleProps={{
+                    className:
+                      "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold",
+                  }}
+                  descProps={{
+                    className:
+                      "max-w-xl text-sm sm:text-base md:text-lg mx-auto text-white/90 mt-3",
+                  }}
                 />
                 <div className="mt-6 flex justify-center">
-                  <button onClick={handleReport} className="btn btn-primary px-6 py-3 text-sm sm:text-base">
+                  <button
+                    onClick={handleReport}
+                    className="btn btn-primary px-6 py-3 text-sm sm:text-base"
+                  >
                     Report an issue
                   </button>
                 </div>
@@ -156,27 +149,24 @@ export default function HeroSlider() {
               <div className="max-w-4xl mx-auto">
                 <SectionHeader
                   as="h1"
-                  title={
-                    <span>
-                      <Typewriter
-                        words={["Act for a Sustainable Future", "Reduce Waste Today", "Build Green Communities"]}
-                        loop={true}
-                        cursor
-                        cursorStyle="|"
-                        typeSpeed={60}
-                        deleteSpeed={30}
-                        delaySpeed={2000}
-                      />
-                    </span>
-                  }
+                  title={"Act for a Sustainable Future"}
                   description={
                     "Encourage recycling, reduce waste, and support eco-friendly community actions."
                   }
-                  titleProps={{ className: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold" }}
-                  descProps={{ className: "max-w-xl text-sm sm:text-base md:text-lg mx-auto text-white/90 mt-3" }}
+                  titleProps={{
+                    className:
+                      "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold",
+                  }}
+                  descProps={{
+                    className:
+                      "max-w-xl text-sm sm:text-base md:text-lg mx-auto text-white/90 mt-3",
+                  }}
                 />
                 <div className="mt-6 flex justify-center">
-                  <button onClick={handleReport} className="btn btn-primary px-6 py-3 text-sm sm:text-base">
+                  <button
+                    onClick={handleReport}
+                    className="btn btn-primary px-6 py-3 text-sm sm:text-base"
+                  >
                     Report an issue
                   </button>
                 </div>
@@ -196,27 +186,24 @@ export default function HeroSlider() {
               <div className="max-w-4xl mx-auto">
                 <SectionHeader
                   as="h1"
-                  title={
-                    <span>
-                      <Typewriter
-                        words={["Promote Recycling & Awareness", "Inspire Sustainable Habits", "Spread Environmental Awareness"]}
-                        loop={true}
-                        cursor
-                        cursorStyle="|"
-                        typeSpeed={60}
-                        deleteSpeed={30}
-                        delaySpeed={2000}
-                      />
-                    </span>
-                  }
+                  title={"Promote Recycling & Awareness"}
                   description={
                     "Spread awareness about recycling and inspire others to adopt sustainable habits."
                   }
-                  titleProps={{ className: "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold" }}
-                  descProps={{ className: "max-w-xl text-sm sm:text-base md:text-lg mx-auto text-white/90 mt-3" }}
+                  titleProps={{
+                    className:
+                      "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold",
+                  }}
+                  descProps={{
+                    className:
+                      "max-w-xl text-sm sm:text-base md:text-lg mx-auto text-white/90 mt-3",
+                  }}
                 />
                 <div className="mt-6 flex justify-center">
-                  <button onClick={handleReport} className="btn btn-primary px-6 py-3 text-sm sm:text-base">
+                  <button
+                    onClick={handleReport}
+                    className="btn btn-primary px-6 py-3 text-sm sm:text-base"
+                  >
                     Report an issue
                   </button>
                 </div>
@@ -231,7 +218,15 @@ export default function HeroSlider() {
           slot="container-end"
         >
           <svg viewBox="0 0 48 48" ref={progressCircle} className="w-8 h-8">
-            <circle cx="24" cy="24" r="20" className="progress-circle" stroke="currentColor" strokeWidth="2" fill="none"></circle>
+            <circle
+              cx="24"
+              cy="24"
+              r="20"
+              className="progress-circle"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+            ></circle>
           </svg>
           <span ref={progressContent} className="text-sm font-medium"></span>
         </div>

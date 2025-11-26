@@ -125,6 +125,7 @@ const AddIssue = () => {
                   <option>Illegal Construction</option>
                   <option>Broken Public Property</option>
                   <option>Road Damage</option>
+                  <option>Other</option>
                 </select>
               </div>
 

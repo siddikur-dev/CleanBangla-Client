@@ -55,7 +55,7 @@ const Review = () => {
   return (
     <section className="py-12 md:py-16 lg:pb-20 bg-base-200">
       <div className="container mx-auto px-4 text-center">
-        <div className="text-3xl md:text-4xl lg:text-4xl  leading-tight text-center mt-4">
+        <div className="text-3xl md:text-4xl lg:text-4xl leading-tight text-center mt-4">
           <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold  mt-4">
             What Our
             <span className="text-primary">
@@ -70,7 +70,7 @@ const Review = () => {
                 cursorStyle="_"
                 typeSpeed={100}
                 deleteSpeed={60}
-                delaySpeed={1300}
+                delaySpeed={1600}
               />
             </span>
           </h2>
@@ -101,10 +101,10 @@ const Review = () => {
         >
           {reviews.map((rev) => (
             <SwiperSlide key={rev.id}>
-              <div className="p-6 border-t-4 border-primary/60 hover:border-primary text-center group card w-full  rounded-lg  transform transition-all duration-300 hover:-translate-y-[-1px] shadow-xl hover:shadow-2xl bg-base-100  min-h-[370px] flex flex-col justify-between items-center">
+              <div className="p-6 border-t-4 border-primary/60 hover:border-primary text-center group card w-full  rounded-lg   transition-all duration-300 hover:-translate-y-[-1px]  bg-base-100  min-h-[370px] flex flex-col justify-between items-center">
                 <FaQuoteLeft className="text-4xl text-primary/70 hover:text-primary mb-3" />
 
-                <p className="text-base-content/80 italic leading-relaxed mb-4 px-2">
+                <p className="text-base-content/80 italic   p-2">
                   “{rev.review}”
                 </p>
 

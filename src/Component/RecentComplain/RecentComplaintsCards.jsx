@@ -14,7 +14,7 @@ const RecentComplaintsCards = ({ issue }) => {
     <div data-aos="zoom-out">
       <div
         className="bg-base-100 rounded-2xl overflow-hidden
-      shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-300  md:h-52 lg:h-57 gap-5"
+      shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-300  md:h-52 lg:h-62 gap-5"
       >
         <div className="p-5">
           {/* Status & Time */}

@@ -74,33 +74,33 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-primary mb-3">Connect</h3>
           <p className="mb-3">Follow us on social media</p>
           <div className="flex justify-center md:justify-end gap-3 text-xl">
-            <a
-              href="https://www.facebook.com/siddikur.dev"
+            <Link
+              to="#"
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
               className="hover:text-primary"
             >
               <FaFacebookF />
-            </a>
-            <a
-              href="https://www.x.com/siddikur_dev"
+            </Link>
+            <Link
+              to="#"
               target="_blank"
               rel="noreferrer"
               aria-label="X (Twitter)"
               className="hover:text-primary"
             >
               <FaXTwitter />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/dev-siddikur/"
+            </Link>
+            <Link
+              to="#"
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
               className="hover:text-primary"
             >
               <FaLinkedinIn />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
